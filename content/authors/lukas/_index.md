@@ -1,5 +1,5 @@
 ---
-bio: My research interests include distributed robotics, mobile computing and programmable
+bio: Researcher and educator with a focus on Open Science and social justice
   matter.
 education:
   courses:
