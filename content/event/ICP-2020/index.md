@@ -27,8 +27,8 @@ title: 'Valuing diversity: an undervalued outcome of intergroup contact'
 url_code: ""
 url_pdf: ""
 url_slides: ""
-url_video: "https://youtu.be/nx2w7Fu9NMI"
+url_video: "https://youtu.be/a9a2uz0BR-k"
 ---
 
-{{< youtube nx2w7Fu9NMI >}}
+{{< youtube a9a2uz0BR-k >}}
 
