@@ -1,19 +1,17 @@
 <footer class="site-footer">
  
-   {{ if or (site.GetPage "credits.md") (site.GetPage "privacy.md") }}
   <p class="powered-by">
     {{ with site.GetPage "privacy.md" }}
       {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
     {{ end }}
     {{ with site.GetPage "credits.md" }}
-      {{ if site.GetPage "privacy.md" }} &middot; {{ end }}
+ &middot; 
       {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
     {{ end }}
   </p>
-  {{ end }}
+
 
   <p class="powered-by">
-    {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} &middot; {{ end }}
 
     Made with <i class="far fa-heart" style="color: #06805E"></i>, <a href="https://github.com/LukasWallrich/personal_webpage" target="_blank" rel="noopener"><i class="fas fa-code-branch"></i></a>, the <a href="https://cran.r-project.org/" target="_blank" rel="noopener"><i class="fab fa-r-project"></i> </a><a href="https://github.com/rstudio/blogdown" target="_blank" rel="noopener">blogdown</a> package, and the 
     <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> <a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener"> Academic theme</a> for
