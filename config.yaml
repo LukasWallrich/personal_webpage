@@ -1,6 +1,7 @@
 theme: starter-academic
 title: Lukas Wallrich
 baseurl: ''
+google_analytics: "G-XJFV4XGT5M"
 copyright: ''
 enableGitInfo: no
 defaultContentLanguage: en
