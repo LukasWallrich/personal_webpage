@@ -1,6 +1,5 @@
 ---
-bio: Researcher and educator with a focus on Open Science and social justice
-  matter.
+bio: Researcher and educator with a focus on Open Science and social justice.
 education:
   courses:
   - course: PhD in Social Psychology
@@ -46,8 +45,8 @@ superuser: true
 title: Lukas Wallrich
 ---
 
-Lukas Wallrich is a PhD candidate at Goldsmith, University of London, where his doctoral research focuses on the relationship between intergroup contact and diversity beliefs. Other research interests include the effect of intergroup contact on pro-social behaviour, the development of stereotypes and implicit associations and the influence of traditional and new media on public attitudes.  He is member of the [Equalab](http://equalab.co.uk/) and [DIPlab](http://blogs.exeter.ac.uk/diplab/) research groups.
+I am currently wrapping up my PhD at Goldsmiths, University of London, where my doctoral research focused on the relationship between intergroup contact and diversity beliefs. My other research interests include the effect of intergroup contact on pro-social behaviour, the development of stereotypes and implicit associations and the influence of traditional and new media on public attitudes.  I am a member of the [Equalab](http://equalab.co.uk/) and [DIPlab](http://blogs.exeter.ac.uk/diplab/) research groups.
 
-In addition to his research, Lukas works as an Associate Lecturer at Goldsmiths and at [St Mary's University Twickenham](https://www.stmarys.ac.uk/). In addition to introductory psychology modules, his teaching is focused on research methods and Open Science.  
+In addition to my research, I work as an Associate Lecturer at [Goldsmiths](https://www.gold.ac.uk) and at [St Mary's University Twickenham](https://www.stmarys.ac.uk/). In addition to introductory psychology modules, my teaching is focused on research methods and Open Science.  
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_Lukas_Wallrich_academic.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_Lukas_Wallrich_academic.pdf" "newtab" >}}CV{{< /staticref >}}.

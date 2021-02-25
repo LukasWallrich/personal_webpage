@@ -1,6 +1,6 @@
 theme: starter-academic
 title: Lukas Wallrich
-baseurl: ''
+baseurl: 'https://lukaswallrich.coffee/'
 google_analytics: "G-XJFV4XGT5M"
 copyright: ''
 enableGitInfo: no
