@@ -10,7 +10,7 @@ I host the **Education for Social Change** podcast. In it, I interview leading e
 
 It is available on [Apple Podcasts](http://bit.ly/EduPodcastApple), [Spotify](https://bit.ly/Edu4ChangeSpotify), and most other podcast platforms ... or click below to start listening.
 
-{{< mybtn "<i class="fab fa-spotify"></i>&nbsp;Spotify" "https://open.spotify.com/show/..." >}}
+{{< mybtn `<i class="fab fa-spotify"></i>&nbsp;Spotify` "https://open.spotify.com/show/..." >}}
 
 
 
