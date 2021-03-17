@@ -36,7 +36,12 @@
 [[main]]
   name = "Podcast"
   url = "podcast/"
-  weight = 60
+  weight = 70
+
+[[main]]
+  name = "timesaveR"
+  url = "timesaveR/"
+  weight = 80
 
 #[[main]]
 #  name = "Contact"
