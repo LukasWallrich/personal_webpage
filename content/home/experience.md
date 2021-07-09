@@ -22,23 +22,30 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
+  - title: Lecturer in Organisational Psychology
+    company: Birkbeck, University of London
+    company_url: 'https://www.bbk.ac.uk/'
+    location: London, UK
+    date_start: '2021-07-19'
+    date_end: ''
+    description: |2-
+        Research into how organisations can benefit from workforce diversity & teaching on various organisational psychology master programmes.
+        
   - title: PhD Candidate & Associate Lecturer
     company: Goldsmiths, University of London
     company_url: 'https://gold.ac.uk'
     location: London, UK
     date_start: '2017-10-01'
-    date_end: ''
+    date_end: '2021-05-01'
     description: |2-
-        PhD research into intergroup contact and valuing diversity.
-        
-        Teaching in quantitative research methods at graduate level and in undergraduate psychology tutorials.
+        Taught quantitative research methods at graduate level and undergraduate psychology tutorials.
         
   - title: Associate Lecturer
     company: St Mary's University Twickenham
     company_url: 'https://stmarys.ac.uk'
     location: Twickenham, UK
     date_start: '2019-10-01'
-    date_end: ''
+    date_end: '2021-04-01'
     description: Taught various subjects, primarily social psychology and political psychology.
     
   - title: Management Consultant
