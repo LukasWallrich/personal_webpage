@@ -1,4 +1,6 @@
-theme: starter-academic
+theme: 
+  - starter-academic
+  - hugo-cite
 title: Lukas Wallrich
 baseurl: 'https://lukaswallrich.coffee/'
 google_analytics: "G-XJFV4XGT5M"
