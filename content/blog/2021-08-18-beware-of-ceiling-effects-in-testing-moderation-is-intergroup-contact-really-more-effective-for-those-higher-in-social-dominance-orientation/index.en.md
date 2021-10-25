@@ -1,14 +1,15 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "2021 08 18 Beware of Ceiling Effects in Testing Moderation Is Intergroup Contact Really More Effective for Those Higher in Social Dominance Orientation"
+title: "Beware of ceiling effects when testing for moderation: is intergroup contact
+  really more effective for authoritarians?"
 subtitle: ""
 summary: ""
-authors: []
+authors: [Lukas Wallrich]
 tags: []
 categories: []
-date: 2021-08-18T11:38:36+01:00
-lastmod: 2021-08-18T11:38:36+01:00
+date: 2021-10-25T11:35:32+01:00
+lastmod: 2021-10-25T11:35:32+01:00
 featured: false
 draft: false
 
@@ -26,4 +27,26 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+
+bibliography: [../refs.bib]
+link-citations: true
 ---
+
+# TL;DR
+
+Moderation tests identify whether the link between a predictor and an outcome depends on the level of another variable. Spurious results are likely to appear when a) the predictor is influenced by floor or ceiling effects and b) predictor and moderator are correlated [recently pointed out by @rohrer_precise_2021, Box 1]. I show that this likely explains the finding by Dhont and Van Dhiel [@dhont_we_2009] that intergroup contact is particularly influential for authoritarians, and suggest that this issue might appear more frequently in the intergroup contat literature.
+
+# The claim: contact is especially effective for authoritarians
+
+In their paper *We must not be enemies: Interracial contact and the reduction of prejudice among authoritarians", Dhont and Van Hiel [@dhont_we_2009] propose that intergroup contact "is especially effective among high scorers on right-wing authoritarianism (RWA) and social dominance orientation (SDO)". Based on two cross-sectional surveys, they test whether SDO and RWA moderate the link between intergroup contact and 'racism.' They generally find that for those lower in RWA and SDO, the link between intergroup contact and racism is weaker than for those higher in RWA and SDO. While research on these links has continued, and yielded mixed results [briefly reviewed in @kauff_intergroup_2016], the 2009 paper continues to be cited as providing evidence that contact is more effective for those higher in social dominance orientation [e.g., @visintin_interplay_2019].
+
+Initially, I was attracted to the 2009 paper because of its simple design and the internal replication of the findings, so that I have used it in my teaching. However, I have come to think again and **now believe that the paper's results are almost certainly a statistical artefact**. Thinking through that helped me to understand a common risk in testing for moderation, so that I wanted to share these thoughts here.
+
+# The data: highly skewed
+
+
+
+
+
+
+
