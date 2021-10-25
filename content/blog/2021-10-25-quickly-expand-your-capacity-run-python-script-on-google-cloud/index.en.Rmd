@@ -1,6 +1,6 @@
 ---
 title: 'Quickly expand your capacity: run Python script on Google Cloud'
-author: ''
+author: Lukas Wallrich
 date: '2021-10-25'
 slug: quickly-expand-your-capacity-run-python-script-on-google-cloud
 categories:
