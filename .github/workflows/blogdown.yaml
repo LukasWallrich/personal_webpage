@@ -20,6 +20,11 @@ jobs:
         with:
           use-public-rspm: true
 
+      - name: Install R packages
+        run: |
+          install.packages(c("bookdown"))          
+        shell: Rscript {0}
+
       - name: Install hugo
         run: |
           R -e 'blogdown::install_hugo()'
