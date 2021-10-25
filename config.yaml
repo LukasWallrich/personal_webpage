@@ -19,6 +19,9 @@ ignoreFiles:
   - \.Rmd$
   - \.Rmarkdown$
   - _cache$
+  - \.knit
+  - \.knit\.md$
+  - \.utf8\.md$
 permalinks:
   authors: /author/:slug/
   categories: /category/:slug/
