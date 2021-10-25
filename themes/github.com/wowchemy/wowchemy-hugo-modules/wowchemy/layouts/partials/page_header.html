@@ -26,7 +26,6 @@
   {{ end }}
 
   {{ with .Params.header.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
-  <link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
 </div>
 {{end}}
 
