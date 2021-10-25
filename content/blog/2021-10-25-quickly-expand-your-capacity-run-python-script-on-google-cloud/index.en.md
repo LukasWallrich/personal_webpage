@@ -18,14 +18,11 @@ slug:  quickly-expand-your-capacity-run-python-script-on-google-cloud
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: ""
-  focal_point: ""
+  caption: "Cloud computing can save a lot of time - if the set-up is quick"
+  focal_point: "TopRight"
   preview_only: false
 
 projects: []
-
-bibliography: [../refs.bib]
-link-citations: true
 ---
 
 
