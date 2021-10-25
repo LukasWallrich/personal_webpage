@@ -1,28 +1,26 @@
 ---
-title: 'Beware of ceiling effects when testing for moderation: is intergroup contact
-  really more effective for authoritarians?'
-author: Lukas Wallrich
-date: 2021-08-18
+# Documentation: https://wowchemy.com/docs/managing-content/
+
+title: "Beware of ceiling effects when testing for moderation: is intergroup contact
+  really more effective for authoritarians?"
+subtitle: ""
+summary: ""
+authors: [Lukas Wallrich]
+tags: []
+categories: []
+date: 2021-10-25T11:35:32+01:00
+lastmod: 2021-10-25T11:35:32+01:00
+featured: false
 draft: false
 slug: beware-of-ceiling-effects-when-testing-for-moderation-intergroup-contact
-categories: 
-  - statistics
-  - think-again
-tags: []
-subtitle: ''
-summary: ''
-authors: []
-lastmod: '2021-08-18T11:42:06+01:00'
-featured: false
+
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: ''
-  focal_point: ''
+  caption: ""
+  focal_point: ""
   preview_only: false
-bibliography: [../refs.bib]
-link-citations: true
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -30,6 +28,9 @@ link-citations: true
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+
+bibliography: [../refs.bib]
+link-citations: true
 ---
 
 # TL;DR
