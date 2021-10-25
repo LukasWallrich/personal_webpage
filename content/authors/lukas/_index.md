@@ -1,17 +1,17 @@
 ---
-bio: Researcher and educator with a focus on Open Science and social justice.
+bio: Researcher and educator with a focus on Open Science and intergroup relations.
 education:
   courses:
   - course: PhD in Social Psychology
     institution: Goldsmiths, University of London
-    year: 2021*
+    year: 2021
   - course: MA in Education (Psychology)
     institution: UCL Institute of Education
     year: 2017
   - course: BA in Philosophy, Politics & Economics (PPE)
     institution: University of Oxford (Merton)
     year: 2012
-email: "l.wallrich@gold.ac.uk"
+email: "l.wallrich@bbk.ac.uk"
 highlight_name: false
 interests:
 - Diversity beliefs, intergroup contact & organisational performance 
@@ -42,7 +42,7 @@ social:
   icon_pack: fab
   link: https://www.linkedin.com/in/lukas-wallrich/
 superuser: true
-title: Lukas Wallrich
+title: Dr Lukas Wallrich
 ---
 
 I am working as a Lecturer in the [Department of Organisational Psychology](https://www.bbk.ac.uk/departments/orgpsych/) at Birkbeck, University of London. There, I teach on organisational psychology master programmes and primarily research how workforce diversity can be harnessed to improve organisational performance. Other research interests include the effect of intergroup contact on pro-social behaviour, the development of stereotypes and implicit associations and the influence of traditional and new media on public attitudes.  
