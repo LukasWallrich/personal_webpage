@@ -7,7 +7,7 @@ subtitle: ""
 summary: ""
 authors: [Lukas Wallrich]
 tags: []
-categories: []
+categories: [statistics, think-again]
 date: 2021-10-25T11:35:32+01:00
 lastmod: 2021-10-25T11:35:32+01:00
 featured: false

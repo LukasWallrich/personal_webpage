@@ -1,22 +1,34 @@
 ---
-title: 'Quickly expand your capacity: run Python script on Google Cloud'
-author: Lukas Wallrich
-date: '2021-10-25'
-slug: quickly-expand-your-capacity-run-python-script-on-google-cloud
-categories:
-  - coding
+# Documentation: https://wowchemy.com/docs/managing-content/
+
+title: "Quickly expand your capacity: run Python script on Google Cloud"
+subtitle: ""
+summary: ""
+authors: [Lukas Wallrich]
 tags: []
-subtitle: ''
-summary: ''
-authors: ["lukas"]
-lastmod: '2021-10-25T13:10:43+01:00'
-featured: no
+categories: [coding]
+date: 2021-10-25T11:35:32+01:00
+lastmod: 2021-10-25T11:35:32+01:00
+featured: false
+draft: false
+slug:  quickly-expand-your-capacity-run-python-script-on-google-cloud
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: 'Cloud computing can be a great timesaver - if the set-up is quick'
-  focal_point: ''
-  preview_only: no
+  caption: "Cloud computing can be a great timesaver - if the set-up is quick"
+  focal_point: "TopRight"
+  preview_only: false
+
+# Projects (optional).
+#   Associate this post with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
+#   Otherwise, set `projects = []`.
 projects: []
 ---
+
 
 I am currently working on some simulation studies using agent-based models, which can quickly take a very long time to run. Rather than having my system slowed for hours/days, I wanted to find a way to *quickly send code into the cloud.* This seemed to be a very obvious use of cloud computing, but proved a little less straight-forward than expected. However, some existing solutions got me 80% there — but they still require a fair bit of manual tuning for every script, and as always, the last 20% ended up consuming a fair bit of time. That’s why I want to share a nearly out-of-the-box solution here.
 
