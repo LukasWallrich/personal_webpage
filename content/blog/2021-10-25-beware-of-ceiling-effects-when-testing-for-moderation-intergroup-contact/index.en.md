@@ -27,8 +27,7 @@ projects: []
 
 # TL;DR
 
-Moderation tests identify whether the link between a predictor and an outcome depends on the level of another variable. Spurious results are likely to appear when a) the predictor is influenced by floor or ceiling effects and b) predictor and moderator are correlated. [This was also recently pointed out in a methods paper {{< cite "Lessig 2002" >}}]. 
-
+Moderation tests identify whether the link between a predictor and an outcome depends on the level of another variable. Spurious results are likely to appear when a) the predictor is influenced by floor or ceiling effects and b) predictor and moderator are correlated. [This was also recently pointed out in a methods paper {{< cite "rohrer_precise_2021" >}}]. 
 # References
 
 {{< bibliography cited >}}
