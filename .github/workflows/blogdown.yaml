@@ -22,7 +22,7 @@ jobs:
 
       - name: Install R packages
         run: |
-          install.packages(c("bookdown"))          
+          install.packages(c("blogdown"))          
         shell: Rscript {0}
 
       - name: Install hugo
