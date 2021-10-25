@@ -4,7 +4,7 @@ on:
   push:
     branches: [main, master]
 
-name: blogdown
+name: Build Hugo
 
 jobs:
   blogdown:
@@ -19,8 +19,6 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         with:
           use-public-rspm: true
-
-      - uses: r-lib/actions/setup-renv@v1
 
       - name: Install hugo
         run: |
