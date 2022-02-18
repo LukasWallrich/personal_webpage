@@ -8,7 +8,7 @@ address:
   street: 
 all_day: true
 authors: []
-date: "2020-12-13T13:00:00Z"
+date: "2022-02-18T13:00:00Z"
 date_end: ""
 event: SPSP Annual Convention
 event_url: https://meeting.spsp.org/
@@ -26,7 +26,7 @@ tags: []
 title: 'Widely prevalent, unevenly declining: implicit and explicit bias in the US since 2006'
 url_code: ""
 url_pdf: ""
-url_slides: ""
+url_slides: "https://github.com/LukasWallrich/bias-trends/raw/main/Widely%20prevalent%20-%20unevenly%20declining%20-%20SPSP%20presentation_Wallrich_PPT.pdf"
 url_video: "https://youtu.be/nHY7lo-8WJ8"
 ---
 
