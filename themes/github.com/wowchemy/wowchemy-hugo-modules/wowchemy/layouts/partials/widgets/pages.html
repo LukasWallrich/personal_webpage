@@ -3,7 +3,7 @@
 {{/* Initialise */}}
 {{ $ := .root }}
 {{ $st := .page }}
-{{ $items_type := $st.Params.content.page_type | default "blog" }}
+{{ $items_type := $st.Params.content.page_type | default "post" }}
 {{ $items_offset := $st.Params.content.offset | default 0 }}
 {{ $items_count := $st.Params.content.count }}
 {{ if eq $items_count 0 }}
@@ -59,7 +59,7 @@
 
 {{/* Localisation */}}
 {{ $i18n := "" }}
-{{ if eq $items_type "blog" }}
+{{ if eq $items_type "post" }}
   {{ $i18n = "more_posts" }}
 {{ else if eq $items_type "event" }}
   {{ $i18n = "more_talks" }}
