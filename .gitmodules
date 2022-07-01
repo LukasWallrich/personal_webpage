@@ -1,3 +1,4 @@
 [submodule "themes/hugo-cite"]
+	path = themes/hugo-cite 
 	url = https://github.com/loup-brun/hugo-cite.git
 	active = true
