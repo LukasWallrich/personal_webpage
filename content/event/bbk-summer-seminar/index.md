@@ -29,5 +29,5 @@ title: Benefiting from diversity - using agent-based models to understand possib
 url_code: ""
 url_pdf: ""
 url_slides: "pubs/LukasWallrich_summer_seminar_cognitive_diversity.pdf"
-url_video: ""
+url_video: "https://youtu.be/Q9pelY1rIs0"
 ---
