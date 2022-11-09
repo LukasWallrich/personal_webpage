@@ -41,6 +41,9 @@ social:
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/lukas-wallrich/
+- icon: mastodon
+  icon_pack: fab
+  link: https://sciences.social/@lukaswallrich
 superuser: true
 title: Dr Lukas Wallrich
 ---
