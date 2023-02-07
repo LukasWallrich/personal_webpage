@@ -6,7 +6,15 @@ title: Teaching
 type: page
 ---
 
-I teach and/or contribute to a variety of courses at Goldsmiths, University of London, at St Mary's University in Twickenham, and in the context of the UWC movement. Here I only list the courses for which I can publicly share teaching materials.
+I have taught and/or contributed to a variety of courses at Birkbeck, University of London, at Goldsmiths, University of London, at St Mary's University in Twickenham, and in the context of the UWC movement. Here I only list the courses for which I can publicly share teaching materials that I believe might be reusable.
+
+## MSc Research Project Module
+
+I am offering a few supplementary sessions to our MSc students in Organisational Psychology at Birkbeck. Some of the following slides might be useful for others:
+
+- Introduction to **[Research Ethics]("media/slides/RP_Ethics2023.pptx")** in Organisational Psychology
+- Introduction to **[Open Science]("media/slides/RP_OpenScience.pptx")** and ways for students to get involved
+- Introduction to **[Questionable Research Practices]("media/slides/RP_QRP.pptx")** and to ways to avoid them
 
 ## Core Quantitative Research Methods
 
