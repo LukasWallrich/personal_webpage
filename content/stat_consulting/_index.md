@@ -8,12 +8,13 @@ type: page
 
 I offer statistical consulting to PhD students and other researchers who need help with study design, analysis or interpretation of results. I am familiar with a wide range of analysis techniques and tools, though I largely work in R and am. not the right person if you are primarily looking for tech support with another analysis tool (e.g., SPSS).
 
-## What my consultancy can cover
+## What my consulting can cover
 
 The following is an (incomplete) list of topics that we can cover in consultation:
 
 - developing research questions and hypotheses,
 - designing surveys and/or experiments,
+- developing and validating measurement scales,
 - power analysis and sample size determination,
 - processing and cleaning data (particularly from noisy online/social media/observational sources),
 - calculating and reporting descriptive statistics,
@@ -25,7 +26,7 @@ The following is an (incomplete) list of topics that we can cover in consultatio
 - creating and interpreting agent-based simulation models,
 - and reporting results and creating appropriate data visualizations
 
-If you need help with something else, please [get in touch](mailto:l.wallrich@bbk.ac.uk) - then we can see whether 
+If you need help with something else, please [get in touch](mailto:l.wallrich@bbk.ac.uk) - then we can see if I can help, or if I can direct you to someone better suited.
 
 ## What I will do & not do
 
@@ -35,7 +36,7 @@ If you need help with something else, please [get in touch](mailto:l.wallrich@bb
 - provide advice, guidance and useful resources to enable you to address your problems,
 - review outputs and write-ups to provide feedback and suggestions for improvement.
 
-I will not
+I will **not**
 
 - run your analyses for you,
 - write any parts of your paper/dissertation,
@@ -43,7 +44,7 @@ I will not
 
 Overall, you will (have to) remain in the lead, and retain responsibility for your own work.
 
-## Further FAQ
+## Frequently asked questions
 
 *Who is the typical client?*
 
@@ -56,4 +57,6 @@ In a free initial consultation (typically around 15-20 mins), we can resolve ope
 *How much does it cost?*
 
 I charge 90 GBP per hour, with 20% discount for current PhD students. Clients remain in full control of the time spent as I will only work outside of face-to-face or online meetings based on explicit agreement.
+
+If you have any other questions, please [get in touch](mailto:l.wallrich@bbk.ac.uk).
 
