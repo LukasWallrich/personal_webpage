@@ -13,10 +13,10 @@ image:
   preview_only: false
 links: 
 projects:
-publication: ""
+publication: "Citizenship, Social and Economics Education"
 publication_short: ""
 publication_types:
-- "3"
+- "2"
 publishDate: "2021-03-01T00:00:00Z"
 slides: 
 summary: Secondary education in Germany is strongly divided into distinct tracks that either aim for university entry or for vocational training. Allocation to these tracks predicts a wide range of life outcomes. In this paper, we combine survey and interview results to explore why voting intentions are strongly shaped by attendance of either educational track.

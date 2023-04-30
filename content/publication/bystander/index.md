@@ -13,10 +13,10 @@ image:
   preview_only: false
 links: 
 projects:
-publication: ""
+publication: "Journal of Applied Social Psychology"
 publication_short: ""
 publication_types:
-- "3"
+- "2"
 publishDate: "2021-05-10T00:00:00Z"
 slides: 
 summary: Discrimination is widespread and often goes unchallenged because bystanders do not recognize the need to intervene or do not know how to intervene. This field experiment with adolescents (N = 639) tested a group discussion designed to increase perceived importance and self-efficacy around challenging general discrimination. The intervention, which involved perspective-taking and action-planning, was tested with delayed measures against active control conditions, namely sessions on self-disclosure and civic engagement. It led to greater self-efficacy, particularly among White participants.

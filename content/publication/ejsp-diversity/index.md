@@ -13,10 +13,10 @@ image:
   preview_only: false
 links: 
 projects:
-publication: ""
-publication_short: ""
+publication: "European Journal of Social Psychology"
+publication_short: "EJSP"
 publication_types:
-- "3"
+- "2"
 publishDate: "2021-01-01T00:00:00Z"
 slides: 
 summary: This article reports two studies that suggest that intergroup contact is associated with a greater valuing of diversity, and then in turn with positive intergroup attitudes and intentions.

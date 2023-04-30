@@ -13,10 +13,10 @@ image:
   preview_only: false
 links: 
 projects:
-publication: ""
+publication: "ReScience C"
 publication_short: ""
 publication_types:
-- "3"
+- "2"
 publishDate: "2022-06-01T00:00:00Z"
 slides: 
 summary: Agent-based models can be a useful tool to simulate (and thus understand) dynamics that might emerge in the real world. In that vein, Hong & Page (2004) modeled how diverse teams outperform homogeneous teams. Here, I replicate their model with open code and show that recent criticisms - while valid - leave the overall claim intact.
