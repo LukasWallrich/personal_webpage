@@ -1,7 +1,7 @@
 ---
 title: Assessing interrater agreement in meta-analyses - what sample size do I need?
 author: Lukas Wallrich
-date: '2023-05-11'
+date: '2024-05-11'
 slug: assessing-interrater-agreement-in-meta-analyses-what-sample-size-do-i-need
 categories: [statistics]
 tags: []
@@ -28,6 +28,10 @@ bilbio-style: "apalike"
 
 
 
+<div style="border: 2px solid #ffcc00; padding: 10px; background-color: #fffbe6; border-radius: 5px;">
+<p><strong>Work in Progress:</strong> This post is a draft and currently under review.
+<br>Feedback is highly welcome. Please <strong>double-check the details</strong> before relying on them for decision-making.</p>
+</div>
 <div id="the-problem" class="section level2">
 <h2>The problem</h2>
 <p>Researchers conducting meta-analyses and systematic reviews need to decide whether to use one or multiple researchers at both the screening and coding stages. While double-coding leads to the identification of more relevant articles <span class="citation">(<a href="#ref-waffenschmidtSingleScreeningConventional2019">Waffenschmidt et al. 2019</a>)</span>, and (almost necessarily) to greater accuracy in coding, it is also much more resource-intensive. Therefore, many protocols specify that they will double-screen or double-code <em>a share</em> of articles and then either simply use that to report on interrater reliability or to decide on the approach for the remaining sources.</p>
@@ -166,6 +170,7 @@ p &lt;- res_agg %&gt;%
   geom_point() + geom_hline(yintercept = .2, color = &quot;red&quot;) + geom_hline(yintercept = .1, color = &quot;red&quot;, linetype = &quot;dashed&quot;) +
   labs(y = &quot;Uncertainty (estimate - lower bound of 90% CI)&quot;)</code></pre>
 </details>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="calculation-of-required-n" class="section level3">
 <h3>Calculation of required N</h3>
@@ -652,6 +657,15 @@ tab &lt;- res_N %&gt;%
 
 #dqngmgsrdd .gt_indent_5 {
   text-indent: 25px;
+}
+
+#dqngmgsrdd .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dqngmgsrdd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
