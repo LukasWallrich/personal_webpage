@@ -196,6 +196,12 @@ p <- res_agg %>%
 </details>
 
 ```{r echo=FALSE}
+p <- res_agg %>% 
+  ggplot(aes(n, Uncertainty, col = base_rate)) +
+  facet_wrap(~target_kappa) +
+  geom_point() + geom_hline(yintercept = .2, color = "red") + geom_hline(yintercept = .1, color = "red", linetype = "dashed") +
+  labs(y = "Uncertainty (estimate - lower bound of 90% CI)")
+
 p
 ```
 
