@@ -33,10 +33,10 @@ library(tidyverse)
 ```
 
 
-
-{{% alert note %}}
-**Work in Progress:** This post is work in progress, and not fully validated. Feedback is highly welcome. Please double-check the details before relying on them for decision-making.
-{{% /alert %}}
+<div style="border: 2px solid #ffcc00; padding: 10px; background-color: #fffbe6; border-radius: 5px;">
+  <strong>Work in Progress:</strong> This post is a draft and currently under review. 
+  <br>Feedback is highly welcome. Please <strong>double-check the details</strong> before relying on them for decision-making.
+</div>
 
 
 ## The problem
@@ -190,7 +190,7 @@ p <- res_agg %>%
 
 </details>
 
-```{r include=FALSE}
+```{r echo=FALSE}
 p
 ```
 
