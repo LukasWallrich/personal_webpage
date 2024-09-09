@@ -1,0 +1,916 @@
+---
+title: Assessing interrater agreement in meta-analyses - what sample size do I need?
+author: Lukas Wallrich
+date: '2023-05-11'
+slug: assessing-interrater-agreement-in-meta-analyses-what-sample-size-do-i-need
+categories: [statistics]
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2023-05-11T11:54:55+01:00'
+featured: no
+draft: no
+projects: []
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: "Assessing interrater reliability is crucial to justify single-screening or coding - yet how do I calculate the sample size?"
+  focal_point: "TopRight"
+  preview_only: false
+
+bibliography: references.bib
+link-citations: TRUE
+bilbio-style: "apalike"
+---
+
+
+
+<div id="the-problem" class="section level2">
+<h2>The problem</h2>
+<p>Researchers conducting meta-analyses and systematic reviews need to decide whether to use one or multiple researchers at both the screening and coding stages. While double-coding leads to the identification of more relevant articles <span class="citation">(<a href="#ref-waffenschmidtSingleScreeningConventional2019">Waffenschmidt et al. 2019</a>)</span>, and (almost necessarily) to greater accuracy in coding, it is also much more resource-intensive. Therefore, many protocols specify that they will double-screen or double-code <em>a share</em> of articles and then either simply use that to report on interrater reliability or to decide on the approach for the remaining sources.</p>
+<p>Frequently, that share is specified as a percentage - e.g., 20%. However, that appears odd if the point is to estimate a statistic based on a sample. Typically, the sample size for such an estimate should be based on the desired level of precision. Here, I aim to identify such sample sizes, going beyond a literature that often relies on rules of thumb that are frequently not very specific. For instance, McHugh <span class="citation">(<a href="#ref-mchughInterraterReliabilityKappa2012">2012</a>)</span> proposes that: “As a general heuristic, sample sizes should not consist of less than 30 comparisons. Sample sizes of 1,000 or more are mathematically most likely to produce very small CIs, which means the estimate of agreement is likely to be very precise.” Here, I will try to add some precision - initially for very simple cases with two raters making a binary decision (e.g., inclusion vs exclusion).</p>
+</div>
+<div id="the-statistic" class="section level2">
+<h2>The statistic</h2>
+<p>Intuitively, interrater agreement is often understood as the percentage overlap. However, with few and unbalanced categories, that can be highly misleading. For instance, during the title and abstract screening for a systematic review, 90% of articles may be excluded. In that case, purely random decisions by two raters who use that base rate can be expected to result in 82% agreement <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Cohen’s kappa is an alternative statistic that corrects for the expected random agreement, and is thus preferable (though not without its own limitations that go beyond the present scope).</p>
+<p>For instance, a kappa of 0.8 means that 80% of the possible agreement <em>beyond chance</em> has been achieved. In the example where 90% of articles are excluded, this would correspond to an observed agreement of approximately 96.4% (with 82% expected by chance and the remaining agreement due to actual consistency between raters).”</p>
+</div>
+<div id="the-desired-precision" class="section level2">
+<h2>The desired precision</h2>
+<p>Typically, the point of calculating interrater agreement on a subset of the data is to estimate whether agreement on the full dataset would exceed an established minimum value. For instance, Cohen defined .8 as the threshold for <em>strong</em> agreement, so that this is often taken to be the target value.</p>
+<p>However, such targets should generally not just be exceeded by an observed estimate. Usually, we would want to be confident that the <em>true underlying value</em> exceeds the threshold. For instance, if we want to pre-register that we rely on a single coder if interrater reliability is sufficient, we would want to aim for a result that tells us that our observed reliability is <em>significantly</em> above the treshold. Specifically, we might want to ensure:</p>
+<ul>
+<li>a x% likelihood of estimating kappa to be above/below the threshold if it is above/below the threshold, <em>or</em></li>
+<li>an x% confidence interval around our estimated <em>kappa</em>, so that we can test whether it is significantly above the threshold.</li>
+</ul>
+<p>Note that these two ambitions are closely related - a confidence interval is defined as the range in which we can expect a specific proportion of observed estimates to fall. If this is symmetric (usually assumed), the same proportion will be below and above - thus, if we want to have a 95% chance to estimate kappa above a threshold, this means that the 90% confidence interval will have to exclude that threshold. Also note that they are entirely dependent on the expected real value of kappa. In the extreme, if we expect it to be right on the threshold (or below), no sample size will suffice to give us meaningful odds to conclude that it exceeds the threshold.</p>
+<p>If we simply want to report kappa, the question becomes more about what precision is required to make the reporting meaningful. At the very least, we might want to ensure that we do not span more than one “level of agreement” based on Cohen’s heuristics, i.e. that we have a lower limit to the confidence interval that is less than .2 away from the point estimate. This will allow us to exclude that we actually have a weak level of agreement when we report a strong level of agreement - which is not a lot to ask. Note that the width of the confidence interval here depends on both the observed agreement (with high and low levels of agreement resulting in narrower confidence intervals than medium ones) and the chance overlap (with higher degrees of chance overlap resulting in wider confidence intervals.)</p>
+</div>
+<div id="required-sample-sizes" class="section level2">
+<h2>Required sample sizes</h2>
+<p>In the following, I will (a) simulate the confidence intervals for various parameter combinations and (b) calculate the required sample size to achieve the desired confidence interval width. The formula to calculate confidence intervals for Cohen’s kappa comes with some issues <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, so that a comparison of both approaches seems warranted.</p>
+<p>Note that kappa is not defined if only one rating is used (e.g., if <em>all</em> articles are deemed irrelevant by both raters). Such cases can occur when fairly small samples come together with fairly high base rates for one category (e.g., exclusion), yet they are ignored here.</p>
+<div id="simulation" class="section level3">
+<h3>Simulation</h3>
+<p>Based on a simulation varying the sample size, the base rate of the category of interest, and the desired kappa, we can estimate the average uncertainty around the kappa estimate. Given that we generally only care whether kappa is good enough, i.e. whether it exceeds a threshold, we can focus on the lower bound of the 90% confidence interval, which corresponds to a one-tailed significance test at the 5% level. The plot below shows the average uncertainty for each combination of sample size (from 25 to 500), base rate (from 50% to 95%), and target kappa (from .6 to .9), based on 1000 simulations. The red solid line indicates a threshold of .2, which corresponds to the ability to claim that kappa is not more than one band away from the estimate, e.g. that it is at least “moderate” if we observe a “substantial” value. The red dashed line indicates a threshold of .1, which would give us about 50% chance that the confidence interval ends in the same band as the estimate.</p>
+<details>
+<summary>
+Show function to calculate Kappa
+</summary>
+<pre class="r"><code>get_kappa &lt;- function(r1, r2, ci_width = .95) {
+  stopifnot(
+    &quot;r1 and r2 must have same length&quot; = length(r1) == length(r2),
+    &quot;r1 and r2 must not have any missing values&quot; = !any(is.na(r1)) &amp; !any(is.na(r2)),
+    &quot;r1 and r2 must consist of the same 2 unique values&quot; =
+      all(sort(unique(r1)) == sort(unique(r2))) &amp; length(unique(r1)) %in% c(1, 2)
+  )
+
+  n &lt;- length(r1)
+
+  values &lt;- sort(unique(r1))
+  r1[r1 == values[1]] &lt;- 0
+  r1[r1 == values[2]] &lt;- 1
+  r2[r2 == values[1]] &lt;- 0
+  r2[r2 == values[2]] &lt;- 1
+
+  # Calculate observed agreement
+  observed_agreement &lt;- sum(r1 == r2) / n
+
+  # Calculate the probability of agreement by chance for each category
+  p0 &lt;- sum(r1 == 0) / n * sum(r2 == 0) / n
+  p1 &lt;- sum(r1 == 1) / n * sum(r2 == 1) / n
+
+  p_random_agreement &lt;- p0 + p1
+
+  # Calculate Cohen&#39;s kappa
+  kappa &lt;- (observed_agreement - p_random_agreement) / (1 - p_random_agreement)
+
+  # SE (based on McHughes, 2012)
+  se_kappa &lt;- sqrt(observed_agreement * (1 - observed_agreement) / (n * (1 - p_random_agreement)^2))
+
+  ci_low &lt;- kappa - abs(qnorm((1 - ci_width) / 2)) * se_kappa
+  ci_high &lt;- kappa + abs(qnorm((1 - ci_width) / 2)) * se_kappa
+
+  data.frame(kappa = kappa, se = se_kappa, ci_low = ci_low, ci_high = ci_high, observed_agreement = observed_agreement, p_random_agreement = p_random_agreement)
+}</code></pre>
+</details>
+<details>
+<summary>
+Show simulation code
+</summary>
+<pre class="r"><code>#Code to simulate one run
+simulate &lt;- function(kappa, base_rate, n) {
+  # Have first rater draw with base rate
+  rater_1 &lt;- rbinom(n, 1, base_rate)
+  
+  # Calculate expected random agreement
+  exp_random &lt;- base_rate^2 + (1-base_rate)^2
+  
+  # Calculate required agreement
+   exp_observed &lt;- (1 - exp_random) * kappa + exp_random
+  
+   # To maintain base rate, need to have same *number* of errors per group
+   rater_2 &lt;- rater_1
+   exp_mistakes &lt;- 1 - exp_observed
+   
+   trues &lt;- which(as.logical(rater_1))
+   falses &lt;- which(!rater_1)
+
+   mistakes &lt;- min(sum(rbinom(n, 1, exp_mistakes/2)), length(falses), length(trues))
+   
+   rater_2[sample(trues, mistakes)] &lt;- 0
+  
+   rater_2[sample(falses, mistakes)] &lt;- 1
+   
+   get_kappa(rater_1, rater_2)
+}
+
+#Parameters
+kappa &lt;- seq(.5, .9, .1)
+base_rate &lt;- seq(.50, .95, .05)
+n &lt;- seq(25, 500, 25)
+
+params &lt;- expand.grid(kappa = kappa, base_rate = base_rate, n = n)
+runs &lt;- 1000
+
+set.seed(12345)
+
+res &lt;- purrr::pmap(.progress = interactive(), params, \(...) {
+  current &lt;- data.frame(...)
+  
+  res &lt;- purrr::map_df(1:runs, ~simulate(current$kappa, current$base_rate, current$n))
+  
+  res$target_kappa &lt;- current$kappa
+  res$base_rate &lt;- current$base_rate
+  res$n &lt;- current$n
+  res
+}) %&gt;% bind_rows()
+
+library(ggplot2)
+
+res_agg &lt;- res %&gt;% group_by(target_kappa, base_rate, n) %&gt;% 
+  summarise(m_Uncertainty = mean(kappa - ci_low, na.rm = TRUE),
+            m_Uncertainty2 = mean(ci_high - kappa, na.rm = TRUE),
+            ci_low = quantile(kappa, .05, na.rm = TRUE), ci_high = quantile(kappa, .95, na.rm = TRUE),
+            kappa = mean(kappa, na.rm = TRUE), .groups = &quot;drop&quot;) %&gt;%  
+  mutate(Uncertainty = kappa - ci_low, 
+         Uncertainty2 = ci_high-kappa) 
+
+
+p &lt;- res_agg %&gt;% 
+  ggplot(aes(n, Uncertainty, col = base_rate)) +
+  facet_wrap(~target_kappa) +
+  geom_point() + geom_hline(yintercept = .2, color = &quot;red&quot;) + geom_hline(yintercept = .1, color = &quot;red&quot;, linetype = &quot;dashed&quot;) +
+  labs(y = &quot;Uncertainty (estimate - lower bound of 90% CI)&quot;)</code></pre>
+</details>
+</div>
+<div id="calculation-of-required-n" class="section level3">
+<h3>Calculation of required N</h3>
+<p>Based on the formula for the standard error of kappa <span class="citation">(e.g., in <a href="#ref-mchughInterraterReliabilityKappa2012">McHugh 2012</a>)</span>, we can also calculate the sample size required to achieve a confidence interval of a desired width. For instance, if aim for a kappa of .8, but would want the confidence interval to be no wider than .2 (so that we can exclude the possibility that we have weak agreement), we would need to code between 25 and 140 articles, depending on the estimated base rate (i.e. the share of articles falling into either category). The table below shows all combinations.</p>
+<p><red> <em>However,</em> it has been shown that such formulae underestimate the variance in small samples (&lt; 80) <span class="citation">Shan and Wang (<a href="#ref-shanExactOnesidedConfidence2017">2017</a>)</span>, so that any results below 80 should be treated with great caution.</red> Also, this assumes <em>symmetric</em> confidence intervals around kappa, which is evidently not quite right for a bounded statistic - yet there currently appears to be no better solution; please contact me if you have a suggestion.</p>
+<details>
+<summary>
+Show R function
+</summary>
+<pre class="r"><code>calculate_n &lt;- function(kappa, base_rate, ci_width = .90, target_gap = .2) {
+  # Calculate expected random agreement
+  exp_random &lt;- base_rate^2 + (1-base_rate)^2
+  
+  # Calculate required agreement
+  exp_observed &lt;- (1 - exp_random) * kappa + exp_random
+  
+  se_kappa &lt;- target_gap / abs(qnorm((1-ci_width)/2))
+  
+  ceiling(exp_observed * (1 - exp_observed) / (se_kappa^2 * (1 - exp_random)^2))
+  
+}
+
+kappa &lt;- seq(.6, .9, .1)
+base_rate &lt;- seq(.5, .95, .05)
+target_gap &lt;- c(.05, .1, .15, .2)
+
+params_N &lt;- expand.grid(kappa = kappa, base_rate = base_rate, target_gap = target_gap)
+
+res_N &lt;- purrr::pmap(.progress = interactive(), params_N, \(...) {
+  current &lt;- data.frame(...)
+  n &lt;- calculate_n(current$kappa, current$base_rate, target_gap = current$target_gap)
+  res &lt;- data.frame(n = n)
+  res$target_kappa &lt;- current$kappa
+  res$base_rate &lt;- current$base_rate
+  res$target_gap &lt;- current$target_gap
+  res
+}) %&gt;% bind_rows()
+
+tab &lt;- res_N %&gt;% 
+  tidyr::pivot_wider(names_from = target_kappa, values_from = n, names_prefix = &quot;kappa__&quot;) %&gt;% 
+  mutate(target_gap = paste0(&quot;uncertainy = &quot;, target_gap)) %&gt;%
+  rename(&quot;Base rate&quot; = base_rate) %&gt;%
+  group_by(target_gap) %&gt;% 
+  gt::gt() %&gt;% 
+  gt::tab_spanner_delim(delim = &quot;__&quot;) %&gt;% 
+  gt::tab_header(title = &quot;Required sample sizes to achieve a desired level of uncertainty&quot;)</code></pre>
+</details>
+<pre class="r"><code>tab</code></pre>
+<div id="dqngmgsrdd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dqngmgsrdd table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dqngmgsrdd thead, #dqngmgsrdd tbody, #dqngmgsrdd tfoot, #dqngmgsrdd tr, #dqngmgsrdd td, #dqngmgsrdd th {
+  border-style: none;
+}
+
+#dqngmgsrdd p {
+  margin: 0;
+  padding: 0;
+}
+
+#dqngmgsrdd .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dqngmgsrdd .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dqngmgsrdd .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dqngmgsrdd .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dqngmgsrdd .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dqngmgsrdd .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dqngmgsrdd .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dqngmgsrdd .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dqngmgsrdd .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dqngmgsrdd .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dqngmgsrdd .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dqngmgsrdd .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dqngmgsrdd .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dqngmgsrdd .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dqngmgsrdd .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dqngmgsrdd .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dqngmgsrdd .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dqngmgsrdd .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dqngmgsrdd .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dqngmgsrdd .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dqngmgsrdd .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dqngmgsrdd .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dqngmgsrdd .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dqngmgsrdd .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dqngmgsrdd .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dqngmgsrdd .gt_left {
+  text-align: left;
+}
+
+#dqngmgsrdd .gt_center {
+  text-align: center;
+}
+
+#dqngmgsrdd .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dqngmgsrdd .gt_font_normal {
+  font-weight: normal;
+}
+
+#dqngmgsrdd .gt_font_bold {
+  font-weight: bold;
+}
+
+#dqngmgsrdd .gt_font_italic {
+  font-style: italic;
+}
+
+#dqngmgsrdd .gt_super {
+  font-size: 65%;
+}
+
+#dqngmgsrdd .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dqngmgsrdd .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dqngmgsrdd .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dqngmgsrdd .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dqngmgsrdd .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dqngmgsrdd .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dqngmgsrdd .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Required sample sizes to achieve a desired level of uncertainty</td>
+    </tr>
+    
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="Base rate">Base rate</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="kappa">
+        <span class="gt_column_spanner">kappa</span>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="0.6">0.6</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="0.7">0.7</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="0.8">0.8</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="0.9">0.9</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="uncertainy = 0.05">uncertainy = 0.05</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.50</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">693</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">552</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">390</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">206</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.55</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">702</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">559</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">394</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">208</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.60</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">729</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">579</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">408</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">215</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.65</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">779</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">617</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">433</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">228</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.70</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">858</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">676</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">473</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">247</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.75</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">982</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">769</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">534</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">278</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.80</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">1180</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">918</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">634</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">328</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.85</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">1525</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">1176</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">806</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">414</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.90</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">2232</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">1707</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">1160</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">591</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.95</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">4384</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">3321</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">2236</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">1129</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="uncertainy = 0.1">uncertainy = 0.1</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.50</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">174</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">138</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">98</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">52</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.55</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">176</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">140</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">99</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">52</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.60</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">183</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">145</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">102</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">54</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.65</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">195</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">155</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">109</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">57</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.70</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">215</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">169</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">119</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">62</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.75</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">246</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">193</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">134</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">70</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.80</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">295</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">230</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">159</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">82</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.85</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">382</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">294</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">202</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">104</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.90</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">558</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">427</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">290</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">148</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.95</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">1096</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">831</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">559</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">283</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="uncertainy = 0.15">uncertainy = 0.15</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.50</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">77</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">62</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">44</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">23</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.55</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">78</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">63</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">44</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">24</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.60</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">81</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">65</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">46</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">24</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.65</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">87</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">69</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">49</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">26</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.70</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">96</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">76</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">53</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">28</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.75</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">110</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">86</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">60</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">31</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.80</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">132</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">102</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">71</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">37</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.85</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">170</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">131</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">90</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">46</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.90</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">248</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">190</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">129</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">66</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.95</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">488</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">369</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">249</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">126</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="uncertainy = 0.2">uncertainy = 0.2</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.50</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">44</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">35</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">25</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">13</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.55</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">44</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">35</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">25</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">13</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.60</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">46</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">37</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">26</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">14</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.65</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">49</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">39</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">28</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">15</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.70</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">54</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">43</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">30</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">16</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.75</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">62</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">49</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">34</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">18</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.80</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">74</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">58</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">40</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">21</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.85</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">96</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">74</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">51</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">26</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.90</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">140</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">107</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">73</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">37</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.95</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">274</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">208</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">140</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">71</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-kovalEstimatorsKappaexactSmall1996" class="csl-entry">
+Koval, John J., and Nicole J. M. Blackman. 1996. <span>“Estimators of Kappa-Exact Small Sample Properties.”</span> <em>Journal of Statistical Computation and Simulation</em> 55 (4): 315–36. <a href="https://doi.org/10.1080/00949659608811773">https://doi.org/10.1080/00949659608811773</a>.
+</div>
+<div id="ref-mchughInterraterReliabilityKappa2012" class="csl-entry">
+McHugh, Mary L. 2012. <span>“<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052">Interrater Reliability: The Kappa Statistic</a>.”</span> <em>Biochemia Medica</em> 22 (3): 276–82.
+</div>
+<div id="ref-shanExactOnesidedConfidence2017" class="csl-entry">
+Shan, Guogen, and Weizhen Wang. 2017. <span>“Exact One-Sided Confidence Limits for <span>Cohen</span>’s Kappa as a Measurement of Agreement.”</span> <em>Statistical Methods in Medical Research</em> 26 (2): 615–32. <a href="https://doi.org/10.1177/0962280214552881">https://doi.org/10.1177/0962280214552881</a>.
+</div>
+<div id="ref-waffenschmidtSingleScreeningConventional2019" class="csl-entry">
+Waffenschmidt, Siw, Marco Knelangen, Wiebke Sieben, Stefanie Bühn, and Dawid Pieper. 2019. <span>“Single Screening Versus Conventional Double Screening for Study Selection in Systematic Reviews: A Methodological Systematic Review.”</span> <em>BMC Medical Research Methodology</em> 19 (1): 132. <a href="https://doi.org/10.1186/s12874-019-0782-0">https://doi.org/10.1186/s12874-019-0782-0</a>.
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>The would be expected to agree on exclusion for 90% * 90% = 81% of results, and on inclusion for 10% * 10% = 1% of results - thus their total overlap would be 81% + 1% = 82%.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>McHugh <span class="citation">(<a href="#ref-mchughInterraterReliabilityKappa2012">2012</a>)</span> proposes a standard formula (estimated Kappa +/- 1.96 standard errors), yet that yields confidence intervals that go beyond the possible range for kappa, and fails when there is full agreement within the sample.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
