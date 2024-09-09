@@ -34,7 +34,6 @@ if (!require(purrr)) install.packages("purrr")
 if (!require(ggplot2)) install.packages("ggplot2")
 if (!require(tidyr)) install.packages("tidyr")
 if (!require(gt)) install.packages("gt")
-if (!require(gtExtras)) install.packages("gtExtras")
 
 library(ggplot2)
 library(dplyr)
@@ -264,8 +263,14 @@ tab <- res_N %>%
 
 </details>
 
+{{% alert theme="warning" %}}
+
+To view the table, make sure to read this in light mode (select at the top of the page on the right). Currently, half of the rows are invisible in dark mode.
+
+{{% /alert %}}
+
 ```{r echo=FALSE}
-tab %>% gtExtras::gt_theme_dark()
+tab
 ```
 
 
