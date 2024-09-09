@@ -29,7 +29,12 @@ bilbio-style: "apalike"
 
 ```{r setup, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
+if (!require(dplyr)) install.packages("dplyr")
+if (!require(purrr)) install.packages("purrr")
+if (!require(ggplot2)) install.packages("ggplot2")
+if (!require(gt)) install.packages("gt")
+library(ggplot2)
+library(dplyr)
 ```
 
 
