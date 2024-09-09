@@ -33,9 +33,11 @@ jobs:
 
       - name: Build site
         run: |
-          R -e 'blogdown::build_site(build_rmd = TRUE)'
+          R -e 'blogdown::build_site(build_rmd = TRUE, run_hugo = FALSE)'
+          R -e 'if (!blogdown::hugo_build()==0) { stop("Hugo build failed.") }'
 
       - name: Deploy to Netlify
+        if: success()
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
