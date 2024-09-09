@@ -17,7 +17,8 @@ interests:
 - Diversity beliefs, intergroup contact & organisational performance 
 - Prejudice reduction & pro-social action
 - Natural language processing & Big Data analytics 
-- Innovative educational practices, incl. flipped classroom and open teaching materials 
+- Innovative educational practices, incl. flipped classroom and open teaching materials
+- Open Science, replicability & meta-research
 organizations:
 - name: Birkbeck, University of London
   url: https://www.bbk.ac.uk/
@@ -41,16 +42,16 @@ social:
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/lukas-wallrich/
-- icon: mastodon
-  icon_pack: fab
-  link: https://sciences.social/@lukaswallrich
+#- icon: mastodon
+#  icon_pack: fab
+#  link: https://sciences.social/@lukaswallrich
 superuser: true
 title: Dr Lukas Wallrich
 ---
 
-I work as a Lecturer in the [Department of Organisational Psychology](https://www.bbk.ac.uk/departments/orgpsych/) at Birkbeck, University of London. There, I teach on organisational psychology master programmes and primarily research how workforce diversity can be harnessed to improve organisational performance. Other research interests include the effect of intergroup contact on pro-social behaviour, the development of stereotypes and implicit associations and the influence of traditional and new media on public attitudes.
+I work as a Lecturer in Organisational Psychology at [Birkbeck Business School](https://www.bbk.ac.uk/school/business), University of London. There, I teach on organisational psychology master programmes and primarily research how workforce diversity can be harnessed to improve organisational performance. Other research interests include the replicability of research in organisational psychology and beyond and the effect of intergroup contact on pro-social behaviour.
 
-I am also very interested in Open Science and an avid *R* user. In that space, I enjoy contributing to the development of tools that support open research - for instance, the [CiteSource](https://www.eshackathon.org/CiteSource/) package that supports meta-analyses. I have also authored two R packages, [rsprite2](https://lukaswallrich.github.io/rsprite2/) and [timesaveR](https://lukaswallrich.github.io/timesaveR/).
+I am also very interested in Open Science and an avid *R* user. In that space, I enjoy contributing to the development of tools that support open research - for instance, the [CiteSource](https://www.eshackathon.org/CiteSource/) package that supports meta-analyses. I have also authored three R packages, [rsprite2](https://lukaswallrich.github.io/rsprite2/), [timesaveR](https://lukaswallrich.github.io/timesaveR/) and [metaUI](https://lukaswallrich.github.io/metaUI/).
 
 In 2021, I completed my PhD at [Goldsmiths, University of London](https://www.gold.ac.uk). In that research, I focused on the relationships between intergroup contact and diversity beliefs. I am a member of the [Equalab](http://equalab.co.uk/) and former member of the [DIPlab](http://blogs.exeter.ac.uk/diplab/) research groups.
 
