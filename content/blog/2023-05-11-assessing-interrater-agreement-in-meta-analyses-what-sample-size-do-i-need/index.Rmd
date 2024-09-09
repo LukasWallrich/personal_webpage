@@ -28,7 +28,7 @@ bilbio-style: "apalike"
 
 
 ```{r setup, include=FALSE, message=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.path = "static")
 if (!require(dplyr)) install.packages("dplyr")
 if (!require(purrr)) install.packages("purrr")
 if (!require(ggplot2)) install.packages("ggplot2")
@@ -258,7 +258,7 @@ tab <- res_N %>%
 
 </details>
 
-```{r}
+```{r echo=FALSE}
 tab
 ```
 

@@ -8,7 +8,7 @@ abstract = "In our [large-scale meta-analysis on the links between team diversit
 abstract_short = "Podcast interview on team diversity, performance, and leadership implications."
 event = "Brain for Business Podcast"
 event_url = "https://brainforbusiness.substack.com/p/series-2-episode-48-how-does-diversity"
-location = "Brain for Business Podcast"
+location = ""
 
 # Is this a selected talk? (true/false)
 selected = false
@@ -21,7 +21,9 @@ url_pdf = ""
 url_slides = ""
 url_video = ""
 url_code = ""
-url_custom = [{icon_pack = "fa", icon="podcast", name="Podcast", url = "https://brainforbusiness.substack.com/p/series-2-episode-48-how-does-diversity"}]
+[url_custom]]
+name = "Podcast"
+url = "https://brainforbusiness.substack.com/p/series-2-episode-48-how-does-diversity"
 
 # Does the content use math formatting?
 math = false

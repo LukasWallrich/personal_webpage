@@ -170,7 +170,7 @@ p &lt;- res_agg %&gt;%
   geom_point() + geom_hline(yintercept = .2, color = &quot;red&quot;) + geom_hline(yintercept = .1, color = &quot;red&quot;, linetype = &quot;dashed&quot;) +
   labs(y = &quot;Uncertainty (estimate - lower bound of 90% CI)&quot;)</code></pre>
 </details>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="staticunnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="calculation-of-required-n" class="section level3">
 <h3>Calculation of required N</h3>
@@ -218,7 +218,6 @@ tab &lt;- res_N %&gt;%
   gt::tab_spanner_delim(delim = &quot;__&quot;) %&gt;% 
   gt::tab_header(title = &quot;Required sample sizes to achieve a desired level of uncertainty&quot;)</code></pre>
 </details>
-<pre class="r"><code>tab</code></pre>
 <div id="dqngmgsrdd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#dqngmgsrdd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
