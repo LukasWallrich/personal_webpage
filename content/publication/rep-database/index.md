@@ -26,7 +26,7 @@ publishDate: "2024-09-04T00:00:00Z"
 slides: 
 summary: The replicability of psychological science has been widely discussed since the Reproducibility Project back in 2015. This paper introduces the Replication Database, a platform that hosts 1,239 original findings paired with replication findings. In addition to supporting research on replicability in general, this dynamic database is intended to make it easier to find replications of specific studies, and thus base teaching and research on more robust evidence.
 tags:
-title: The Replication Database: Documenting the Replicability of Psychological Science
+title: 'The Replication Database: Documenting the Replicability of Psychological Science'
 url_code: ""
 url_dataset: "https://osf.io/9r62x/"
 url_preprint: "https://osf.io/preprints/metaarxiv/me2ub"
