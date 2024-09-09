@@ -1,17 +1,6 @@
 ---
-abstract: In psychological science, replicability — repeating a study with a new sample achieving
-consistent results (Parsons et al., 2022) — is critical for affirming the validity of
-scientific findings. Despite its importance, replication efforts are few and far between
-in psychological science with many attempts failing to corroborate past findings.
-This scarcity, compounded by the difficulty in accessing replication data, jeopardizes
-the efficient allocation of research resources and impedes scientific advancement.
-Addressing this crucial gap, we present the Replication Database (https://forrt-
-replications.shinyapps.io/fred_explorer), a novel platform hosting 1,239 original
-findings paired with replication findings. The infrastructure of this database allows
-researchers to submit, access, and engage with replication findings. The database
-makes replications visible, easily findable via a graphical user interface, and tracks
-replication rates across various factors, such as publication year or journal. This will
-facilitate future efforts to evaluate the robustness of psychological research.
+abstract: >
+  In psychological science, replicability — repeating a study with a new sample achieving consistent results (Parsons et al., 2022) — is critical for affirming the validity of scientific findings. Despite its importance, replication efforts are few and far between in psychological science with many attempts failing to corroborate past findings. This scarcity, compounded by the difficulty in accessing replication data, jeopardizes the efficient allocation of research resources and impedes scientific advancement. Addressing this crucial gap, we present the Replication Database (https://forrt-replications.shinyapps.io/fred_explorer), a novel platform hosting 1,239 original findings paired with replication findings. The infrastructure of this database allows researchers to submit, access, and engage with replication findings. The database makes replications visible, easily findable via a graphical user interface, and tracks replication rates across various factors, such as publication year or journal. This will facilitate future efforts to evaluate the robustness of psychological research.
 #author_notes:
 #- Equal contribution
 #- Equal contribution
