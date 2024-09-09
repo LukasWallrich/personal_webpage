@@ -1,7 +1,7 @@
 ---
 title: Assessing interrater agreement in meta-analyses - what sample size do I need?
 author: Lukas Wallrich
-date: '2023-05-11'
+date: '2024-05-11'
 slug: assessing-interrater-agreement-in-meta-analyses-what-sample-size-do-i-need
 categories: [statistics]
 tags: []
