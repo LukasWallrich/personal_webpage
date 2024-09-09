@@ -33,7 +33,7 @@ jobs:
 
       - name: Build site
         run: |
-          R -e 'blogdown::build_site(build_rmd = blogdown::filter_timestamp)'
+          R -e 'blogdown::build_site(build_rmd = TRUE)'
 
       - name: Deploy to Netlify
         env:
