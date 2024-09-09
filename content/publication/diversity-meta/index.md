@@ -30,7 +30,7 @@ summary: >
 tags:
 title: 'The Relationship Between Team Diversity and Team Performance: Reconciling Promise and Reality Through a Comprehensive Meta-Analysis Registered Report'
 url_code: "https://osf.io/tzjxp/"
-url_preprint:"https://osf.io/nscd4/"
+url_preprint: "https://osf.io/nscd4/"
 url_dataset: "https://github.com/LukasWallrich/diversity_meta/blob/main/SM2%20-%20Analysis/data/full_dataset.rds"
 url_poster: ""
 url_project: "https://osf.io/hpsz8/"
