@@ -28,10 +28,10 @@ bilbio-style: "apalike"
 
 
 
-<div style="border: 2px solid #ffcc00; padding: 10px; background-color: #fffbe6; border-radius: 5px;">
+<p>{{% alert theme=“warning” %}}</p>
 <p><strong>Work in Progress:</strong> This post is a draft and currently under review.
 <br>Feedback is highly welcome. Please <strong>double-check the details</strong> before relying on them for decision-making.</p>
-</div>
+<p>{{% /alert %}}</p>
 <div id="the-problem" class="section level2">
 <h2>The problem</h2>
 <p>Researchers conducting meta-analyses and systematic reviews need to decide whether to use one or multiple researchers at both the screening and coding stages. While double-coding leads to the identification of more relevant articles <span class="citation">(<a href="#ref-waffenschmidtSingleScreeningConventional2019">Waffenschmidt et al. 2019</a>)</span>, and (almost necessarily) to greater accuracy in coding, it is also much more resource-intensive. Therefore, many protocols specify that they will double-screen or double-code <em>a share</em> of articles and then either simply use that to report on interrater reliability or to decide on the approach for the remaining sources.</p>
@@ -219,7 +219,10 @@ tab &lt;- res_N %&gt;%
   gt::tab_header(title = &quot;Required sample sizes to achieve a desired level of uncertainty&quot;)</code></pre>
 </details>
 <div id="dqngmgsrdd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dqngmgsrdd table {
+<style>@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#dqngmgsrdd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -240,50 +243,24 @@ tab &lt;- res_N %&gt;%
   line-height: normal;
   margin-left: auto;
   margin-right: auto;
-  color: #333333;
+  color: #FFFFFF;
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
-  background-color: #FFFFFF;
+  background-color: #333333;
   width: auto;
-  border-top-style: solid;
+  border-top-style: none;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
   border-right-style: none;
   border-right-width: 2px;
-  border-right-color: #D3D3D3;
+  border-right-color: #333333;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
+  border-bottom-color: #333333;
   border-left-style: none;
   border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#dqngmgsrdd .dark .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: red;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
+  border-left-color: #333333;
 }
 
 #dqngmgsrdd .gt_caption {
@@ -292,33 +269,33 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_title {
-  color: #333333;
+  color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
-  border-bottom-color: #FFFFFF;
+  border-bottom-color: #333333;
   border-bottom-width: 0;
 }
 
 #dqngmgsrdd .gt_subtitle {
-  color: #333333;
+  color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
   padding-top: 3px;
   padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
-  border-top-color: #FFFFFF;
+  border-top-color: #333333;
   border-top-width: 0;
 }
 
 #dqngmgsrdd .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
+  background-color: #333333;
+  text-align: left;
+  border-bottom-color: #333333;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -328,18 +305,18 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_bottom_border {
-  border-bottom-style: solid;
+  border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
 #dqngmgsrdd .gt_col_headings {
-  border-top-style: solid;
+  border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
   border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-width: 3px;
+  border-bottom-color: #FFFFFF;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -349,8 +326,8 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   font-size: 100%;
   font-weight: normal;
   text-transform: inherit;
@@ -369,8 +346,8 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   font-size: 100%;
   font-weight: normal;
   text-transform: inherit;
@@ -390,8 +367,8 @@ tab &lt;- res_N %&gt;%
 
 #dqngmgsrdd .gt_column_spanner {
   border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-width: 3px;
+  border-bottom-color: #FFFFFF;
   vertical-align: bottom;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -409,8 +386,8 @@ tab &lt;- res_N %&gt;%
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   font-size: 100%;
   font-weight: initial;
   text-transform: inherit;
@@ -432,8 +409,8 @@ tab &lt;- res_N %&gt;%
 
 #dqngmgsrdd .gt_empty_group_heading {
   padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   font-size: 100%;
   font-weight: initial;
   border-top-style: solid;
@@ -454,8 +431,8 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 10px;
@@ -473,8 +450,8 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   font-size: 100%;
   font-weight: initial;
   text-transform: inherit;
@@ -486,8 +463,8 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   font-size: 100%;
   font-weight: initial;
   text-transform: inherit;
@@ -508,8 +485,8 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   text-transform: inherit;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -537,8 +514,8 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   text-transform: inherit;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -571,17 +548,17 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_table_body {
-  border-top-style: solid;
+  border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #333333;
 }
 
 #dqngmgsrdd .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -603,8 +580,8 @@ tab &lt;- res_N %&gt;%
 }
 
 #dqngmgsrdd .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #333333;
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -696,235 +673,235 @@ tab &lt;- res_N %&gt;%
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <thead>
     <tr class="gt_heading">
-      <td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Required sample sizes to achieve a desired level of uncertainty</td>
+      <td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="font-family: 'Libre Franklin'; font-weight: 800;">Required sample sizes to achieve a desired level of uncertainty</td>
     </tr>
     
     <tr class="gt_col_headings gt_spanner_row">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="Base rate">Base rate</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" style="color: #FFFFFF; font-family: 'Source Sans Pro'; text-transform: uppercase;" scope="col" id="Base rate">Base rate</th>
       <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="kappa">
         <span class="gt_column_spanner">kappa</span>
       </th>
     </tr>
     <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="0.6">0.6</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="0.7">0.7</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="0.8">0.8</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="0.9">0.9</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF; font-family: 'Source Sans Pro'; text-transform: uppercase;" scope="col" id="0.6">0.6</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF; font-family: 'Source Sans Pro'; text-transform: uppercase;" scope="col" id="0.7">0.7</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF; font-family: 'Source Sans Pro'; text-transform: uppercase;" scope="col" id="0.8">0.8</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF; font-family: 'Source Sans Pro'; text-transform: uppercase;" scope="col" id="0.9">0.9</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr class="gt_group_heading_row">
       <th colspan="5" class="gt_group_heading" scope="colgroup" id="uncertainy = 0.05">uncertainy = 0.05</th>
     </tr>
-    <tr class="gt_row_group_first"><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.50</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">693</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">552</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">390</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">206</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.55</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">702</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">559</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">394</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">208</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.60</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">729</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">579</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">408</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">215</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.65</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">779</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">617</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">433</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">228</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.70</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">858</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">676</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">473</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">247</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.75</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">982</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">769</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">534</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">278</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.80</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">1180</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">918</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">634</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">328</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.85</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">1525</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">1176</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">806</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">414</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.90</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">2232</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">1707</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">1160</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">591</td></tr>
-    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right">0.95</td>
-<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right">4384</td>
-<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right">3321</td>
-<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right">2236</td>
-<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right">1129</td></tr>
+    <tr class="gt_row_group_first"><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.50</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">693</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">552</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">390</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">206</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.55</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">702</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">559</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">394</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">208</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.60</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">729</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">579</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">408</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">215</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.65</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">779</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">617</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">433</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">228</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.70</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">858</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">676</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">473</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">247</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.75</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">982</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">769</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">534</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">278</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.80</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">1180</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">918</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">634</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">328</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.85</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">1525</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">1176</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">806</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">414</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.90</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">2232</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">1707</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">1160</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">591</td></tr>
+    <tr><td headers="uncertainy = 0.05  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.95</td>
+<td headers="uncertainy = 0.05  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">4384</td>
+<td headers="uncertainy = 0.05  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">3321</td>
+<td headers="uncertainy = 0.05  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">2236</td>
+<td headers="uncertainy = 0.05  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">1129</td></tr>
     <tr class="gt_group_heading_row">
       <th colspan="5" class="gt_group_heading" scope="colgroup" id="uncertainy = 0.1">uncertainy = 0.1</th>
     </tr>
-    <tr class="gt_row_group_first"><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.50</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">174</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">138</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">98</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">52</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.55</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">176</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">140</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">99</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">52</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.60</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">183</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">145</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">102</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">54</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.65</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">195</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">155</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">109</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">57</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.70</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">215</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">169</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">119</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">62</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.75</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">246</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">193</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">134</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">70</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.80</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">295</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">230</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">159</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">82</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.85</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">382</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">294</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">202</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">104</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.90</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">558</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">427</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">290</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">148</td></tr>
-    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right">0.95</td>
-<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right">1096</td>
-<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right">831</td>
-<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right">559</td>
-<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right">283</td></tr>
+    <tr class="gt_row_group_first"><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.50</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">174</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">138</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">98</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">52</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.55</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">176</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">140</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">99</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">52</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.60</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">183</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">145</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">102</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">54</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.65</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">195</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">155</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">109</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">57</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.70</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">215</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">169</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">119</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">62</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.75</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">246</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">193</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">134</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">70</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.80</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">295</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">230</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">159</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">82</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.85</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">382</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">294</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">202</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">104</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.90</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">558</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">427</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">290</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">148</td></tr>
+    <tr><td headers="uncertainy = 0.1  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.95</td>
+<td headers="uncertainy = 0.1  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">1096</td>
+<td headers="uncertainy = 0.1  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">831</td>
+<td headers="uncertainy = 0.1  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">559</td>
+<td headers="uncertainy = 0.1  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">283</td></tr>
     <tr class="gt_group_heading_row">
       <th colspan="5" class="gt_group_heading" scope="colgroup" id="uncertainy = 0.15">uncertainy = 0.15</th>
     </tr>
-    <tr class="gt_row_group_first"><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.50</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">77</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">62</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">44</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">23</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.55</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">78</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">63</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">44</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">24</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.60</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">81</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">65</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">46</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">24</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.65</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">87</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">69</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">49</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">26</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.70</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">96</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">76</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">53</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">28</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.75</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">110</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">86</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">60</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">31</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.80</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">132</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">102</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">71</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">37</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.85</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">170</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">131</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">90</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">46</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.90</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">248</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">190</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">129</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">66</td></tr>
-    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right">0.95</td>
-<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right">488</td>
-<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right">369</td>
-<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right">249</td>
-<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right">126</td></tr>
+    <tr class="gt_row_group_first"><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.50</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">77</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">62</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">44</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">23</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.55</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">78</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">63</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">44</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">24</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.60</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">81</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">65</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">46</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">24</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.65</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">87</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">69</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">49</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">26</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.70</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">96</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">76</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">53</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">28</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.75</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">110</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">86</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">60</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">31</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.80</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">132</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">102</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">71</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">37</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.85</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">170</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">131</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">90</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">46</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.90</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">248</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">190</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">129</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">66</td></tr>
+    <tr><td headers="uncertainy = 0.15  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.95</td>
+<td headers="uncertainy = 0.15  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">488</td>
+<td headers="uncertainy = 0.15  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">369</td>
+<td headers="uncertainy = 0.15  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">249</td>
+<td headers="uncertainy = 0.15  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">126</td></tr>
     <tr class="gt_group_heading_row">
       <th colspan="5" class="gt_group_heading" scope="colgroup" id="uncertainy = 0.2">uncertainy = 0.2</th>
     </tr>
-    <tr class="gt_row_group_first"><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.50</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">44</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">35</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">25</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.55</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">44</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">35</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">25</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.60</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">46</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">37</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">26</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">14</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.65</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">49</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">39</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">28</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">15</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.70</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">54</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">43</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">30</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">16</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.75</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">62</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">49</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">34</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">18</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.80</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">74</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">58</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">40</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">21</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.85</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">96</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">74</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">51</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">26</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.90</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">140</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">107</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">73</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">37</td></tr>
-    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right">0.95</td>
-<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right">274</td>
-<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right">208</td>
-<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right">140</td>
-<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right">71</td></tr>
+    <tr class="gt_row_group_first"><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.50</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">44</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">35</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">25</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">13</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.55</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">44</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">35</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">25</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">13</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.60</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">46</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">37</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">26</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">14</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.65</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">49</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">39</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">28</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">15</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.70</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">54</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">43</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">30</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">16</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.75</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">62</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">49</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">34</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">18</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.80</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">74</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">58</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">40</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">21</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.85</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">96</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">74</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">51</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">26</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.90</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">140</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">107</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">73</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">37</td></tr>
+    <tr><td headers="uncertainy = 0.2  Base rate" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">0.95</td>
+<td headers="uncertainy = 0.2  kappa__0.6" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">274</td>
+<td headers="uncertainy = 0.2  kappa__0.7" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">208</td>
+<td headers="uncertainy = 0.2  kappa__0.8" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">140</td>
+<td headers="uncertainy = 0.2  kappa__0.9" class="gt_row gt_right" style="font-family: 'Source Sans Pro'; font-weight: 400;">71</td></tr>
   </tbody>
   
   

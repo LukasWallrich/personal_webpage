@@ -34,15 +34,21 @@ if (!require(purrr)) install.packages("purrr")
 if (!require(ggplot2)) install.packages("ggplot2")
 if (!require(tidyr)) install.packages("tidyr")
 if (!require(gt)) install.packages("gt")
+if (!require(gtExtras)) install.packages("gtExtras")
+
 library(ggplot2)
 library(dplyr)
 ```
 
 
-<div style="border: 2px solid #ffcc00; padding: 10px; background-color: #fffbe6; border-radius: 5px;">
-  <strong>Work in Progress:</strong> This post is a draft and currently under review. 
+{{% alert theme="warning" %}}
+
+ <strong>Work in Progress:</strong> This post is a draft and currently under review. 
   <br>Feedback is highly welcome. Please <strong>double-check the details</strong> before relying on them for decision-making.
-</div>
+
+{{% /alert %}}
+
+
 
 
 ## The problem
@@ -259,7 +265,7 @@ tab <- res_N %>%
 </details>
 
 ```{r echo=FALSE}
-tab
+tab %>% gtExtras::gt_theme_dark()
 ```
 
 
