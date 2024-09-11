@@ -30,7 +30,7 @@ title: 'The Replication Database: Documenting the Replicability of Psychological
 url_code: ""
 url_dataset: "https://osf.io/9r62x/"
 url_preprint: "https://osf.io/preprints/metaarxiv/me2ub"
-url_poster: ""
+url_pdf: "https://openpsychologydata.metajnl.com/articles/101/files/66e18fdc5e1b7.pdf"
 url_project: ""
 url_slides: ""
 url_source: ""
