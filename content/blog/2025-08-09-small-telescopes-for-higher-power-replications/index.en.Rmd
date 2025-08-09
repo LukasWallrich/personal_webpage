@@ -1,0 +1,240 @@
+---
+title: Small Telescopes for Higher-Power Replications
+author: Lukas wallrich
+date: '2025-08-09'
+slug: small-telescopes-for-higher-power-replications
+categories: []
+tags: [Metascience]
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2025-08-09T15:04:49+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+> **TL;DR.** In Simonsohn’s Small‑Telescopes framework you test whether the true effect is **smaller than** the effect that would have given the **original** study 33% power (call this \(d_{33\%}\)). Simonsohn (2015) shows that this requires 2.5x the original sample size if you want 80% power to show that the true effect is smaller than \(d_{33\%}\) *if the true effect is 0*. In this post, I provide alternative multiples for 90% and 95% power (3.5x and 4.5x respectively).
+
+
+## Small-Telescopes in Short: What is being tested (and why “one‑sided”)?
+
+Let \(d_{33\%}\) be the effect size that would have given the **original** two‑sample *t* test **33% power** at two‑sided \(\alpha_0=.05\). The replication runs a **one‑sided** test
+
+\[
+H_0: d = d_{33\%}\quad \text{vs}\quad H_1: d< d_{33\%}
+\]
+
+at \(\alpha=.05\), and we plan the replication to have (e.g.) **80% power** to reject \(H_0\) **if the true effect is 0**. *Intuition:* Rather than asking whether the effect is exactly zero, the small telescopes test asks whether it is smaller than the minimal effect the original study had a reasonable chance to detect. If the replication can rule out effects of that size, the onus shifts — the original proponents are suggested to now bear the "burden of proof" again, because even the smallest effect they could plausibly have detected is inconsistent with the replication data.
+
+## When might higher power be worth it?
+
+The original small telescopes rule-of-thumb — about 2.5× the original sample size for 80% power — works well for many replications. But there are situations where aiming higher is justified. For example:
+
+- **Policy- or practice-relevant findings** where acting on a false positive would have high costs.
+- **Expensive or rare data** where you won’t get a second chance to replicate, so making the most of the opportunity matters.
+- **Adversarial collaborations** where proponents and critics may want to aim for a definitive answer.
+
+In these cases, the (substantial) cost of increasing power from 80% to 90% or 95% may be outweighed by the clarity it brings. A higher-powered replication yields in a more precise effect size estimate, and is more likely to confirm whether the effect is significantly smaller than the small telescope threshold.
+
+
+## Analytic multipliers
+
+The multipliers for the original per‑cell \(n\) to achieve higher power in the small telescopes test can be derived from the normal approximation of the two‑sample *t* test. Under a normal approximation, the replication‑to‑original per‑cell‑\(n\) ratio is
+
+\[
+m=\left(\frac{z_{1-\alpha}+z_{\text{power}}}{z_{1-\alpha_0/2}+z_{p_0}}\right)^2,
+\]
+
+with \(p_0=1/3\) (see SM in Simonsohn, 2015).[^1] This gives: **80% → 2.64×**, **90% → 3.66×**, **95% → 4.63×**. With finite‑sample *t* tests, the exact multipliers are **slightly lower** for small samples and approach these limits as \(n_0\) grows. In line with the original paper, which proposed 2.5x for 80% power, I propose using **3.5x** and **4.5x** for 90% and 95% power respectively.[^2]
+
+
+## Exact calculation and validation of the heuristic multipliers
+
+Using the *t*-distribution for specific sample sizes, we can calculate more specific multipliers for the small telescopes test. The code below computes these "exact" multiplier for a given original per‑cell \(n\) and target power, and compares it to the normal approximation. The results show that the multiples lead to a power within 2% of the target power for \(n_0\) up to 1000 participants per cell.
+
+<details>
+  <summary>Show code to calculate exact multiplier</summary>
+
+```{r, message=FALSE, warning=FALSE}
+
+library(dplyr)
+library(purrr)
+library(pwr)
+
+# d_33% for the original two-sample t (per-cell n), p0 = 1/3 per supplement
+d33_two_sample_t <- function(n_per_cell, p0 = 1/3, alpha0 = 0.05) {
+  pwr.t.test(n = n_per_cell,
+             power = p0,
+             sig.level = alpha0,
+             type = "two.sample",
+             alternative = "two.sided")$d
+}
+
+# Power to reject H0: d = d33 with a one-sided (less) t-test at alpha, when true d = 0
+# Test is one-sided because the replication has a directional hypothesis
+power_reject_d33_under_null0 <- function(n_per_cell_rep, d33, alpha = 0.05) {
+  df    <- 2 * n_per_cell_rep - 2
+  tcrit <- qt(alpha, df = df, lower.tail = TRUE)
+  ncp   <- -d33 * sqrt(n_per_cell_rep / 2)
+  pt(tcrit, df = df, ncp = ncp, lower.tail = TRUE)
+}
+
+# Exact multiplier via t; returns integer per-cell n for replication and achieved power
+small_telescopes_multiplier_exact <- function(n_original_per_cell,
+                                              target_power = 0.80,
+                                              alpha = 0.05,
+                                              p0 = 1/3,
+                                              alpha0 = 0.05,
+                                              max_mult = 100,
+                                              tol = 1e-7) {
+  stopifnot(n_original_per_cell >= 3)
+  d33 <- d33_two_sample_t(n_original_per_cell, p0 = p0, alpha0 = alpha0)
+  f <- function(n_rep) power_reject_d33_under_null0(n_rep, d33, alpha) - target_power
+
+  lower <- max(3, n_original_per_cell) * 1.0
+  upper <- min(max_mult * n_original_per_cell, 1e7)
+  f_lower <- f(lower); f_upper <- f(upper)
+  while (f_lower * f_upper > 0 && upper < 1e7) {
+    upper <- min(upper * 2, 1e7); f_upper <- f(upper)
+  }
+
+  n_rep_cont <- if (f_lower >= 0) lower else if (f_upper <= 0) upper else
+    uniroot(f, interval = c(lower, upper), tol = tol)$root
+
+  n_rep_int <- ceiling(n_rep_cont)
+  tibble(
+    n_original_per_cell = n_original_per_cell,
+    d33 = d33,
+    n_replication_per_cell_exact = n_rep_int,
+    exact_multiplier = n_rep_int / n_original_per_cell,
+    achieved_power_exact = power_reject_d33_under_null0(n_rep_int, d33, alpha)
+  )
+}
+
+# Normal-approx multiplier (independent of n0) for p0 = 1/3
+small_telescopes_multiplier_normal <- function(target_power = 0.80,
+                                               alpha = 0.05,
+                                               p0 = 1/3,
+                                               alpha0 = 0.05) {
+  z_alpha0_2      <- qnorm(1 - alpha0/2)
+  z_p0            <- qnorm(p0)
+  z_1_minus_alpha <- qnorm(1 - alpha)
+  z_target_power  <- qnorm(target_power)
+  mu_orig <- z_alpha0_2 + z_p0
+  mu_rep  <- z_1_minus_alpha + z_target_power
+  (mu_rep / mu_orig)^2
+}
+```
+
+</details>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(gt)
+library(htmltools)
+
+# Convenience wrapper: adds power for the 2.5x heuristic
+compare_exact_vs_normal <- function(n_original_per_cell,
+                                    target_power = 0.80,
+                                    alpha = 0.05,
+                                    heuristic_mult = c(".8" = 2.5, ".9" = 3.5, ".95" = 4.5),
+                                    p0 = 1/3,
+                                    alpha0 = 0.05) {
+  if (length(heuristic_mult) > 1) {
+    heuristic_mult = c("0.8" = 2.5, "0.9" = 3.5, "0.95" = 4.5)[as.character(target_power)]
+  }
+  approx_mult <- small_telescopes_multiplier_normal(target_power, alpha, p0, alpha0)
+  map_dfr(n_original_per_cell, function(n0) {
+    ex <- small_telescopes_multiplier_exact(n0, target_power, alpha, p0, alpha0)
+    d33 <- ex$d33
+    n_rep_heur  <- ceiling(heuristic_mult * n0)
+    power_heur  <- power_reject_d33_under_null0(n_rep_heur, d33, alpha)
+    bind_cols(
+      ex %>% mutate(
+        d33 = round(d33, 3),
+        approx_multiplier = round(approx_mult, 3)
+      ),
+      tibble(
+        heuristic_multiplier = heuristic_mult,
+        n_replication_per_cell_heuristic = n_rep_heur,
+        heuristic_power = power_heur
+      )
+    )
+  }) %>%
+    mutate(across(c(exact_multiplier, approx_multiplier,
+                    achieved_power_exact, heuristic_power), ~round(., 3)))
+}
+
+# target-specific gt table (compact columns)
+gt_power_table <- function(n0s, target_power, heuristic_mult) {
+  df <- compare_exact_vs_normal(n0s, target_power = target_power, heuristic_mult = heuristic_mult) %>%
+    select(n_original_per_cell, d33, exact_multiplier, achieved_power_exact, heuristic_power) %>%
+    mutate(
+      d33 = round(d33, 3),
+      exact_multiplier = round(exact_multiplier, 3),
+      achieved_power_exact = round(achieved_power_exact, 3),
+      heuristic_power = round(heuristic_power, 3)
+    )
+
+  gt(df) |>
+    cols_label(
+      n_original_per_cell = html("n<sub>0</sub> per cell"),
+      d33 = html("d<sub>33%</sub> (orig)"),
+      exact_multiplier = html("exact m"),
+      achieved_power_exact = html("achieved power (exact)"),
+      heuristic_power = html("achieved power (heuristic)")
+    ) |>
+    tab_header(
+      title = md(paste0("**Target power = ", 100*target_power, "%**")),
+      subtitle = md(paste0("Heuristic multiplier: **", heuristic_mult, "×**"))
+    ) |>
+    fmt_number(columns = everything(), decimals = 2) |>
+    fmt_number(columns = n_original_per_cell, decimals = 0) |>
+    tab_options(
+      table.font.size = px(14),
+      data_row.padding = px(4),
+      table.width = pct(100)
+    )
+}
+
+# Render three gt tables side-by-side (80%, 90%, 95%)
+render_power_gt_row <- function(n0s = c(10, 20, 50, 100, 500, 1000),
+                                heuristics = c("0.8" = 2.5, "0.9" = 3.5, "0.95" = 4.5)) {
+  tbl80 <- gt_power_table(n0s, 0.80, heuristics["0.8"])
+  tbl90 <- gt_power_table(n0s, 0.90, heuristics["0.9"])
+  tbl95 <- gt_power_table(n0s, 0.95, heuristics["0.95"])
+
+  # Emit raw HTML to place the three gt tables in a flex row
+  html <- htmltools::tagList(
+    tags$div(
+      style = "display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;",
+      tags$div(style="flex:1 1 300px; min-width:260px;", HTML(gt::as_raw_html(tbl80))),
+      tags$div(style="flex:1 1 300px; min-width:260px;", HTML(gt::as_raw_html(tbl90))),
+      tags$div(style="flex:1 1 300px; min-width:260px;", HTML(gt::as_raw_html(tbl95)))
+    )
+  )
+  knitr::asis_output(as.character(html))
+}
+
+# Example call (will output three side-by-side gt tables):
+render_power_gt_row(n0s = c(10, 20, 50, 100, 500, 1000, 100000))
+
+```
+
+## Practical takeaway
+
+- While the original Simonsohn (2015) heuristic of **2.5×** the original per‑cell \(n\) for **80%** power slightly underestimates the required sample size when n > 20, it achieves at least 78% power even in large samples.
+- If you need **90%** or **95%** power, **3.5×** and **4.5×** can serve as comparable heuristics. They also slightly underestimate the sample size, but still achieve 89% and 94% power respectively in large samples.
+- If you want to power your replication study more precisely, you can use the `small_telescopes_multiplier_exact()` function in the code above.
+
+## Reference
+
+Simonsohn, U. (2015). Small telescopes: Detectability and the evaluation of replication results. *Psychological Science*, 26(5), 559-569.
+
+---
+[^1] In prose we say “33% power,” but numerically we follow the Simonsohn (2015) supplement and compute with \(p_0=1/3\). Using \(p_0=.33\) instead shifts the normal multipliers slightly (e.g., 2.68 vs 2.64). 
+[^2] All \(n\) here are **per‑cell** for two‑sample *t* with equal variances. Simonsohn (2015) shows that &Chi;<sup>2</sup> tests behave similarly, and various other tests directly depend on the *t*-distribution (e.g. correlations, regression coefficients). Nevertheless, the stability of the rules-of-thumb across designs could be investigated further.
