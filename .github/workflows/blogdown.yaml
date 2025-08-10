@@ -1,10 +1,9 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/master/examples
-# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
     branches: [main, master]
   pull_request:
-    branches: [main, master]  
+    branches: [main, master]
 
 name: Build Hugo
 
@@ -24,28 +23,33 @@ jobs:
 
       - name: Install R packages
         run: |
-          install.packages(c("rmarkdown", "blogdown"))          
+          install.packages(c("rmarkdown", "blogdown"))
         shell: Rscript {0}
 
       - name: Install hugo
-        run: |
-          R -e 'blogdown::install_hugo(extended = TRUE, version = "0.81.0")'
+        run: R -e 'blogdown::install_hugo(extended = TRUE, version = "0.81.0")'
 
       - name: Build site
-        run: |
-          # R -e 'blogdown::build_site(build_rmd = TRUE, run_hugo = FALSE)'
-          R -e 'if (!blogdown::hugo_build()==0) { stop("Hugo build failed.") }'
+        run: R -e 'if (!blogdown::hugo_build()==0) stop("Hugo build failed.")'
 
-      - name: Deploy to Netlify
-        if: success()
+      # Install Netlify CLI
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm install -g netlify-cli
+
+      # Preview deploys for PRs
+      - name: Deploy preview to Netlify
+        if: github.event_name == 'pull_request'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: |
-          if [ github.event_name == 'pull_request' ]; then
-            echo "Running netlify preview deploy"
-            netlify deploy 
-          else
-            echo "Running netlify production deploy"
-            netlify deploy --prod
-          fi                
+        run: netlify deploy --dir=public
+
+      # Production deploys on pushes to main/master
+      - name: Deploy production to Netlify
+        if: github.event_name != 'pull_request'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: netlify deploy --prod --dir=public
