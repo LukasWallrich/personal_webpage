@@ -43,12 +43,15 @@ markup:
   defaultMarkdownHandler: goldmark
   goldmark:
     renderer:
-      unsafe: yes
+      unsafe: true
   highlight:
-    codeFences: no
+    codeFences: false
   tableOfContents:
     endLevel: 3
     startLevel: 2
+  footnotes:
+    provider: goldmark
+    inlineNotes: false
 imaging:
   anchor: smart
   quality: 75

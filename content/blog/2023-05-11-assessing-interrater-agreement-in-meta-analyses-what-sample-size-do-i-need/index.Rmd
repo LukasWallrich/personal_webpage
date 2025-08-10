@@ -263,7 +263,7 @@ tab <- res_N %>%
 
 </details>
 
-{{% alert theme="warning" %}}
+{{% callout theme="warning" %}}
 
 To view the table, make sure to read this in light mode (select at the top of the page on the right). Currently, half of the rows are invisible in dark mode.
 

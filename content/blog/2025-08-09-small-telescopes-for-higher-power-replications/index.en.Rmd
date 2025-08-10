@@ -15,6 +15,7 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+math: true
 ---
 
 > **TL;DR.** In Simonsohn’s Small‑Telescopes framework you test whether the true effect is **smaller than** the effect that would have given the **original** study 33% power (call this \(d_{33\%}\)). Simonsohn (2015) shows that this requires 2.5x the original sample size if you want 80% power to show that the true effect is smaller than \(d_{33\%}\) *if the true effect is 0*. In this post, I provide alternative multiples for 90% and 95% power (3.5x and 4.5x respectively).
