@@ -22,7 +22,7 @@ interests:
 organizations:
 - name: Birkbeck, University of London
   url: https://www.bbk.ac.uk/
-role: Lecturer
+role: Senior Lecturer
 social:
 - icon: envelope
   icon_pack: fas
@@ -49,10 +49,10 @@ superuser: true
 title: Dr Lukas Wallrich
 ---
 
-I work as a Lecturer in Organisational Psychology at [Birkbeck Business School](https://www.bbk.ac.uk/school/business), University of London. There, I teach on organisational psychology master programmes and primarily research how workforce diversity can be harnessed to improve organisational performance. Other research interests include the replicability of research in organisational psychology and beyond and the effect of intergroup contact on pro-social behaviour.
+I work as a Lecturer in Organisational Psychology at [Birkbeck Business School](https://www.bbk.ac.uk/school/business), University of London. There, I teach on organisational psychology master programmes and research how workforce diversity can be harnessed to improve organisational performance, and how we can improve the reliability of research. This includes co-leading [FORRT's Replication Hub](https://forrt.org/replication-hub/), acting as a Senior Editor for [*Replication Research*](https://replicationresearch.org), and leading the UKRI-funded project *Making Replications Count*. In addition, I am interested in intergroup contact research, and serve as Co-Chair of the [International Contact Research Network](https://contact-research-network.github.io/).
 
 I am also very interested in Open Science and an avid *R* user. In that space, I enjoy contributing to the development of tools that support open research - for instance, the [CiteSource](https://www.eshackathon.org/CiteSource/) package that supports meta-analyses. I have also authored three R packages, [rsprite2](https://lukaswallrich.github.io/rsprite2/), [timesaveR](https://lukaswallrich.github.io/timesaveR/) and [metaUI](https://lukaswallrich.github.io/metaUI/).
 
-In 2021, I completed my PhD at [Goldsmiths, University of London](https://www.gold.ac.uk). In that research, I focused on the relationships between intergroup contact and diversity beliefs. I am a member of the [Equalab](http://equalab.co.uk/) and former member of the [DIPlab](http://blogs.exeter.ac.uk/diplab/) research groups.
+In 2021, I completed my PhD at [Goldsmiths, University of London](https://www.gold.ac.uk). In that research, I focused on the relationships between intergroup contact and diversity beliefs. During that time, I was a member of the [Equalab](http://equalab.co.uk/) and [DIPlab](http://blogs.exeter.ac.uk/diplab/) research groups.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_Lukas_Wallrich_academic.pdf" "newtab" >}}CV{{< /staticref >}}.
