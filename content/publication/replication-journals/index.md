@@ -10,7 +10,7 @@ date: "2025-01-01T00:00:00Z"
 doi: "10.1016/j.socec.2025.102502"
 featured: false
 image:
-  caption: 'Credit: [Jan Antonin Kolar](https://unsplash.com/@jankolar?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/brown-wooden-drawer-lRoX0shwjUQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)'
+  caption: 'Photo by <a href="https://unsplash.com/@amadorloureiro?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Amador Loureiro</a> on <a href="https://unsplash.com/photos/letter-wood-stamp-lot-BVyNlchWqzs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
   focal_point: ""
   preview_only: false
 projects: []
