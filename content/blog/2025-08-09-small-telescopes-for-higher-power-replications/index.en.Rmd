@@ -50,7 +50,7 @@ The multipliers for the original per‑cell \(n\) to achieve higher power in the
 m=\left(\frac{z_{1-\alpha}+z_{\text{power}}}{z_{1-\alpha_0/2}+z_{p_0}}\right)^2,
 \]
 
-with \(p_0=1/3\) (see SM in Simonsohn, 2015).[^1] This gives: **80% → 2.64×**, **90% → 3.66×**, **95% → 4.63×**. With finite‑sample *t* tests, the exact multipliers are **slightly lower** for small samples and approach these limits as \(n_0\) grows. In line with the original paper, which proposed 2.5x for 80% power, I propose using **3.5x** and **4.5x** for 90% and 95% power respectively.[^2]
+with \(p_0=1/3\) (see SM in Simonsohn, 2015).[^1] This gives: **80% → 2.64×**, **90% → 3.66×**, **95% → 4.63×**. With finite‑sample *t*-tests, the exact multipliers are **slightly lower** for small samples and approach these limits as \(n_0\) grows. In line with the original paper, which proposed 2.5x for 80% power, I propose using **3.5x** and **4.5x** for 90% and 95% power respectively.[^2]
 
 
 ## Exact calculation and validation of the heuristic multipliers
