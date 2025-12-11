@@ -21,7 +21,8 @@ publication_types:
 publishDate: "2025-01-01T00:00:00Z"
 slides: 
 summary: This article reviews the scarcity of published replications in economics and psychology, examines why traditional journals resist publishing them, and argues that dedicated replication journals offer an essential solution by providing critical infrastructure for the self-correcting function of science.
-tags: Metascience
+tags:
+- Metascience
 title: 'No Room at the Inn? The Case for Dedicated Replication Journals'
 url_code: ""
 url_dataset: ""
