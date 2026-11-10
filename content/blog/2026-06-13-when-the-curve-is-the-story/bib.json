@@ -1,0 +1,306 @@
+[
+    {
+        "id": "Yang2024",
+        "type": "journal-article",
+        "title": "Unveiling the dynamics of team age structure and its impact on scientific innovation",
+        "author": [
+            {
+                "given": "Alex J.",
+                "family": "Yang",
+                "sequence": "first",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "given": "Huimin",
+                "family": "Xu",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "given": "Ying",
+                "family": "Ding",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "given": "Meijun",
+                "family": "Liu",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            }
+        ],
+        "issued": {
+            "date-parts": [
+                [
+                    2024,
+                    4,
+                    29
+                ]
+            ]
+        },
+        "container-title": "Scientometrics",
+        "volume": "129",
+        "issue": "10",
+        "page": "6127-6148",
+        "DOI": "10.1007/s11192-024-04987-4"
+    },
+    {
+        "id": "Wu2019",
+        "type": "journal-article",
+        "title": "Large teams develop and small teams disrupt science and technology",
+        "author": [
+            {
+                "given": "Lingfei",
+                "family": "Wu",
+                "sequence": "first",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "given": "Dashun",
+                "family": "Wang",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "given": "James A.",
+                "family": "Evans",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            }
+        ],
+        "issued": {
+            "date-parts": [
+                [
+                    2019,
+                    2,
+                    13
+                ]
+            ]
+        },
+        "container-title": "Nature",
+        "volume": "566",
+        "issue": "7744",
+        "page": "378-382",
+        "DOI": "10.1038/s41586-019-0941-9"
+    },
+    {
+        "id": "HarrisonKlein2007",
+        "type": "journal-article",
+        "title": "What's the difference? diversity constructs as separation, variety, or disparity in organizations",
+        "author": [
+            {
+                "given": "David A.",
+                "family": "Harrison",
+                "sequence": "first",
+                "affiliation": [
+                    {
+                        "name": "The Pennsylvania State University"
+                    }
+                ],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "given": "Katherine J.",
+                "family": "Klein",
+                "sequence": "additional",
+                "affiliation": [
+                    {
+                        "name": "University of Pennsylvania"
+                    }
+                ],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            }
+        ],
+        "issued": {
+            "date-parts": [
+                [
+                    2007,
+                    10
+                ]
+            ]
+        },
+        "container-title": "Academy of Management Review",
+        "volume": "32",
+        "issue": "4",
+        "page": "1199-1228",
+        "DOI": "10.5465/amr.2007.26586096"
+    },
+    {
+        "id": "Wallrich2024",
+        "type": "journal-article",
+        "title": "The Relationship Between Team Diversity and Team Performance: Reconciling Promise and Reality Through a Comprehensive Meta-Analysis Registered Report",
+        "author": [
+            {
+                "ORCID": "https://orcid.org/0000-0003-2121-5177",
+                "authenticated-orcid": false,
+                "given": "Lukas",
+                "family": "Wallrich",
+                "sequence": "first",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "ORCID": "https://orcid.org/0000-0002-5148-3204",
+                "authenticated-orcid": false,
+                "given": "Victoria",
+                "family": "Opara",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "given": "Miki",
+                "family": "Weso\u0142owska",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "ORCID": "https://orcid.org/0000-0002-6048-5084",
+                "authenticated-orcid": false,
+                "given": "Ditte",
+                "family": "Barnoth",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            },
+            {
+                "ORCID": "https://orcid.org/0000-0002-4189-8668",
+                "authenticated-orcid": false,
+                "given": "Sayeh",
+                "family": "Yousefi",
+                "sequence": "additional",
+                "affiliation": [],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            }
+        ],
+        "issued": {
+            "date-parts": [
+                [
+                    2024,
+                    8,
+                    29
+                ]
+            ]
+        },
+        "container-title": "Journal of Business and Psychology",
+        "volume": "39",
+        "issue": "6",
+        "page": "1303-1354",
+        "DOI": "10.1007/s10869-024-09977-0"
+    },
+    {
+        "id": "Simonsohn2018",
+        "type": "journal-article",
+        "title": "Two Lines: A Valid Alternative to the Invalid Testing of U-Shaped Relationships With Quadratic Regressions",
+        "author": [
+            {
+                "given": "Uri",
+                "family": "Simonsohn",
+                "sequence": "first",
+                "affiliation": [
+                    {
+                        "name": "ESADE Business School, Ramon Llull University"
+                    }
+                ],
+                "role": [
+                    {
+                        "vocabulary": "crossref",
+                        "role": "author"
+                    }
+                ]
+            }
+        ],
+        "issued": {
+            "date-parts": [
+                [
+                    2018,
+                    11,
+                    28
+                ]
+            ]
+        },
+        "container-title": "Advances in Methods and Practices in Psychological Science",
+        "volume": "1",
+        "issue": "4",
+        "page": "538-555",
+        "DOI": "10.1177/2515245918805755"
+    }
+]

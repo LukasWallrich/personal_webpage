@@ -1,0 +1,82 @@
+[
+  {
+    "id": "Timmerman2000",
+    "type": "journal-article",
+    "title": "Racial Diversity, Age Diversity, Interdependence, and Team Performance",
+    "container-title": "Small Group Research",
+    "author": [
+      {
+        "given": "Thomas A.",
+        "family": "Timmerman"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2000,
+          10
+        ]
+      ]
+    },
+    "volume": "31",
+    "issue": "5",
+    "page": "592-606",
+    "DOI": "10.1177/104649640003100505"
+  },
+  {
+    "id": "GelmanStern2006",
+    "type": "journal-article",
+    "title": "The Difference Between “Significant” and “Not Significant” is not Itself Statistically Significant",
+    "container-title": "The American Statistician",
+    "author": [
+      {
+        "given": "Andrew",
+        "family": "Gelman"
+      },
+      {
+        "given": "Hal",
+        "family": "Stern"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2006,
+          11
+        ]
+      ]
+    },
+    "volume": "60",
+    "issue": "4",
+    "page": "328-331",
+    "DOI": "10.1198/000313006x152649"
+  },
+  {
+    "id": "SchenkerGentleman2001",
+    "type": "journal-article",
+    "title": "On Judging the Significance of Differences by Examining the Overlap Between Confidence Intervals",
+    "container-title": "The American Statistician",
+    "author": [
+      {
+        "given": "Nathaniel",
+        "family": "Schenker"
+      },
+      {
+        "given": "Jane F",
+        "family": "Gentleman"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2001,
+          8
+        ]
+      ]
+    },
+    "volume": "55",
+    "issue": "3",
+    "page": "182-186",
+    "DOI": "10.1198/000313001317097960"
+  }
+]

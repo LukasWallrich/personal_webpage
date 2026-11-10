@@ -4,6 +4,7 @@ header:
   image: ""
 title: Statistical consulting
 type: page
+draft: true
 ---
 
 I offer statistical consulting to PhD students and other researchers who need help with study design, analysis or interpretation of results. I am familiar with a wide range of analysis techniques and tools, though I largely work in R and am. not the right person if you are primarily looking for tech support with another analysis tool (e.g., SPSS).
